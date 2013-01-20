@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="WorkflowClient.xsd" >
+  <Globals>
+    <DefaultScreens activation="" credentials=""/>
+  </Globals>
+  <Triggers> 
+    <Actions>
+      <Action name="CustomerGetDetails" sourcescreen="Start" targetscreen="Cust_Details" errorscreen="">
+        <Methods>
+          <Method name="findCustDetail" type="search" mbo="CustomerGetDetails" package="GBI_SalesApp:1.0" showCredScreenOnAuthFailure="false" >
+            <InputBinding optype="none" opname="findCustDetail" generateOld="false">
+              <Value sourceType="Key" workflowKey="Select_Customer" paramName="Custo_No" attribName="Custo_No" mboType="string"/>			
+              <Value sourceType="Key" workflowKey="Select_Customer" pkName="PK_GetDetail" mboType="string"/>		    		
+            </InputBinding>
+            <OutputBinding generateOld="false">			    
+              <Mapping workflowKey="CustomerGetDetails_Custo_No_attribKey" workflowType="text" attribName="Custo_No" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_FORM_OF_AD_attribKey" workflowType="text" attribName="FORM_OF_AD" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_FIRST_NAME_attribKey" workflowType="text" attribName="FIRST_NAME" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_NAME_attribKey" workflowType="text" attribName="NAME" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_NAME_3_attribKey" workflowType="text" attribName="NAME_3" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_NAME_4_attribKey" workflowType="text" attribName="NAME_4" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_STREET_attribKey" workflowType="text" attribName="STREET" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_POSTL_CODE_attribKey" workflowType="text" attribName="POSTL_CODE" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_CITY_attribKey" workflowType="text" attribName="CITY" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_REGION_attribKey" workflowType="text" attribName="REGION" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_COUNTRY_attribKey" workflowType="text" attribName="COUNTRY" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_COUNTRNISO_attribKey" workflowType="text" attribName="COUNTRNISO" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_COUNTRAISO_attribKey" workflowType="text" attribName="COUNTRAISO" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_INTERNET_attribKey" workflowType="text" attribName="INTERNET" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_FAX_NUMBER_attribKey" workflowType="text" attribName="FAX_NUMBER" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_TELEPHONE_attribKey" workflowType="text" attribName="TELEPHONE" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_TELEPHONE2_attribKey" workflowType="text" attribName="TELEPHONE2" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_LANGU_attribKey" workflowType="text" attribName="LANGU" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_LANGU_ISO_attribKey" workflowType="text" attribName="LANGU_ISO" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_CURRENCY_attribKey" workflowType="text" attribName="CURRENCY" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_CURRENCY_ISO_attribKey" workflowType="text" attribName="CURRENCY_ISO" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_COUNTRYISO_attribKey" workflowType="text" attribName="COUNTRYISO" mboType="string"/>
+              <Mapping workflowKey="CustomerGetDetails_ONLY_CHANGE_COMADDRESS_attribKey" workflowType="text" attribName="ONLY_CHANGE_COMADDRESS" mboType="string"/>
+
+            </OutputBinding>
+          </Method>
+        </Methods>
+      </Action>
+      <Action name="SalesOrderGetList" sourcescreen="Cust_Details" targetscreen="SalesOrders" errorscreen="">
+        <Methods>
+          <Method name="findOrderList" type="search" mbo="SalesOrderGetList" package="GBI_SalesApp:1.0" showCredScreenOnAuthFailure="false" >
+            <InputBinding optype="none" opname="findOrderList" generateOld="false">
+              <Value sourceType="Key" workflowKey="CustomerGetDetails_Custo_No_attribKey" paramName="CUST_NUM" mboType="string"/>			
+              <Value sourceType="Key" workflowKey="CustomerGetDetails_Custo_No_attribKey" pkName="PK_GetList" mboType="string"/>		    		
+            </InputBinding>
+            <OutputBinding generateOld="false">			    
+              <Mapping workflowKey="SalesOrderGetList" workflowType="list" mboType="list">
+                 <Mapping workflowKey="SalesOrderGetList_CUST_NUM_attribKey" workflowType="text" attribName="CUST_NUM" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_SD_DOC_attribKey" workflowType="text" attribName="SD_DOC" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_ITM_NUMBER_attribKey" workflowType="text" attribName="ITM_NUMBER" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_MATERIAL_attribKey" workflowType="text" attribName="MATERIAL" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_SHORT_TEXT_attribKey" workflowType="text" attribName="SHORT_TEXT" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_DOC_TYPE_attribKey" workflowType="text" attribName="DOC_TYPE" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_REQ_QTY_attribKey" workflowType="number" attribName="REQ_QTY" mboType="decimal"/>
+                 <Mapping workflowKey="SalesOrderGetList_PURCH_NO_attribKey" workflowType="text" attribName="PURCH_NO" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_BATCH_attribKey" workflowType="text" attribName="BATCH" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_BILL_BLOCK_attribKey" workflowType="text" attribName="BILL_BLOCK" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_DLV_BLOCK_attribKey" workflowType="text" attribName="DLV_BLOCK" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_SOLD_TO_attribKey" workflowType="text" attribName="SOLD_TO" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_NAME_attribKey" workflowType="text" attribName="NAME" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_EXCHG_RATE_attribKey" workflowType="number" attribName="EXCHG_RATE" mboType="decimal"/>
+                 <Mapping workflowKey="SalesOrderGetList_DLV_QTY_attribKey" workflowType="number" attribName="DLV_QTY" mboType="decimal"/>
+                 <Mapping workflowKey="SalesOrderGetList_BASE_UOM_attribKey" workflowType="text" attribName="BASE_UOM" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_NET_PRICE_attribKey" workflowType="number" attribName="NET_PRICE" mboType="decimal"/>
+                 <Mapping workflowKey="SalesOrderGetList_COND_P_UNT_attribKey" workflowType="number" attribName="COND_P_UNT" mboType="decimal"/>
+                 <Mapping workflowKey="SalesOrderGetList_COND_UNIT_attribKey" workflowType="text" attribName="COND_UNIT" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_NET_VAL_HD_attribKey" workflowType="number" attribName="NET_VAL_HD" mboType="decimal"/>
+                 <Mapping workflowKey="SalesOrderGetList_NET_VALUE_attribKey" workflowType="number" attribName="NET_VALUE" mboType="decimal"/>
+                 <Mapping workflowKey="SalesOrderGetList_DIVISION_attribKey" workflowType="text" attribName="DIVISION" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_DOC_STATUS_attribKey" workflowType="text" attribName="DOC_STATUS" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_SALES_GRP_attribKey" workflowType="text" attribName="SALES_GRP" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_SALES_OFF_attribKey" workflowType="text" attribName="SALES_OFF" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_SALES_ORG_attribKey" workflowType="text" attribName="SALES_ORG" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_SALES_UNIT_attribKey" workflowType="text" attribName="SALES_UNIT" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_SHIP_POINT_attribKey" workflowType="text" attribName="SHIP_POINT" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_DISTR_CHAN_attribKey" workflowType="text" attribName="DISTR_CHAN" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_CURRENCY_attribKey" workflowType="text" attribName="CURRENCY" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_PLANT_attribKey" workflowType="text" attribName="PLANT" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_STORE_LOC_attribKey" workflowType="text" attribName="STORE_LOC" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_ORD_REASON_attribKey" workflowType="text" attribName="ORD_REASON" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_REASON_REJ_attribKey" workflowType="text" attribName="REASON_REJ" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_B_UOM_ISO_attribKey" workflowType="text" attribName="B_UOM_ISO" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_CD_UNT_ISO_attribKey" workflowType="text" attribName="CD_UNT_ISO" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_S_UNIT_ISO_attribKey" workflowType="text" attribName="S_UNIT_ISO" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_CURR_ISO_attribKey" workflowType="text" attribName="CURR_ISO" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_PURCH_NO_C_attribKey" workflowType="text" attribName="PURCH_NO_C" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_EXCHG_RATE_V_attribKey" workflowType="number" attribName="EXCHG_RATE_V" mboType="decimal"/>
+                 <Mapping workflowKey="SalesOrderGetList_MAT_EXT_attribKey" workflowType="text" attribName="MAT_EXT" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_MAT_GUID_attribKey" workflowType="text" attribName="MAT_GUID" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_MAT_VERS_attribKey" workflowType="text" attribName="MAT_VERS" mboType="string"/>
+                 <Mapping workflowKey="SalesOrderGetList_STATUS_DOC_attribKey" workflowType="text" attribName="STATUS_DOC" mboType="string"/>
+              </Mapping>
+
+            </OutputBinding>
+          </Method>
+        </Methods>
+      </Action>
+      <Action name="View_Order_Status" sourcescreen="Order_Details" targetscreen="Order_Status" errorscreen="">
+        <Methods>
+          <Method name="findOrderStatus" type="search" mbo="SalesOrderGetStatus" package="GBI_SalesApp:1.0" showCredScreenOnAuthFailure="false" >
+            <InputBinding optype="none" opname="findOrderStatus" generateOld="false">
+              <Value sourceType="Key" workflowKey="SalesOrderGetList_SD_DOC_attribKey" paramName="DocNum" mboType="string"/>			
+              <Value sourceType="Key" workflowKey="SalesOrderGetList_SD_DOC_attribKey" pkName="PK_GetStatus" mboType="string"/>		    		
+            </InputBinding>
+            <OutputBinding generateOld="false">			    
+              <Mapping workflowKey="SalesOrderGetStatus_DOC_NUMBER_attribKey" workflowType="text" attribName="DOC_NUMBER" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_PURCH_NO_attribKey" workflowType="text" attribName="PURCH_NO" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_PRC_STAT_H_attribKey" workflowType="text" attribName="PRC_STAT_H" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_DLV_STAT_H_attribKey" workflowType="text" attribName="DLV_STAT_H" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_DLV_BLOCK_attribKey" workflowType="text" attribName="DLV_BLOCK" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_ITM_NUMBER_attribKey" workflowType="text" attribName="ITM_NUMBER" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_MATERIAL_attribKey" workflowType="text" attribName="MATERIAL" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_SHORT_TEXT_attribKey" workflowType="text" attribName="SHORT_TEXT" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_REQ_QTY_attribKey" workflowType="number" attribName="REQ_QTY" mboType="decimal"/>
+              <Mapping workflowKey="SalesOrderGetStatus_CUM_CF_QTY_attribKey" workflowType="number" attribName="CUM_CF_QTY" mboType="decimal"/>
+              <Mapping workflowKey="SalesOrderGetStatus_SALES_UNIT_attribKey" workflowType="text" attribName="SALES_UNIT" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_NET_VALUE_attribKey" workflowType="number" attribName="NET_VALUE" mboType="decimal"/>
+              <Mapping workflowKey="SalesOrderGetStatus_CURRENCY_attribKey" workflowType="text" attribName="CURRENCY" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_NET_PRICE_attribKey" workflowType="number" attribName="NET_PRICE" mboType="decimal"/>
+              <Mapping workflowKey="SalesOrderGetStatus_COND_P_UNT_attribKey" workflowType="number" attribName="COND_P_UNT" mboType="decimal"/>
+              <Mapping workflowKey="SalesOrderGetStatus_COND_UNIT_attribKey" workflowType="text" attribName="COND_UNIT" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_DLV_STAT_I_attribKey" workflowType="text" attribName="DLV_STAT_I" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_DELIV_NUMB_attribKey" workflowType="text" attribName="DELIV_NUMB" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_DELIV_ITEM_attribKey" workflowType="text" attribName="DELIV_ITEM" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_DLV_QTY_attribKey" workflowType="number" attribName="DLV_QTY" mboType="decimal"/>
+              <Mapping workflowKey="SalesOrderGetStatus_REF_QTY_attribKey" workflowType="number" attribName="REF_QTY" mboType="decimal"/>
+              <Mapping workflowKey="SalesOrderGetStatus_S_UNIT_ISO_attribKey" workflowType="text" attribName="S_UNIT_ISO" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_CD_UNT_ISO_attribKey" workflowType="text" attribName="CD_UNT_ISO" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_CURR_ISO_attribKey" workflowType="text" attribName="CURR_ISO" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_MATERIAL_EXTERNAL_attribKey" workflowType="text" attribName="MATERIAL_EXTERNAL" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_MATERIAL_GUID_attribKey" workflowType="text" attribName="MATERIAL_GUID" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_MATERIAL_VERSION_attribKey" workflowType="text" attribName="MATERIAL_VERSION" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_PO_ITM_NO_attribKey" workflowType="text" attribName="PO_ITM_NO" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_S_UNIT_DLV_attribKey" workflowType="text" attribName="S_UNIT_DLV" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_DLV_UNIT_ISO_attribKey" workflowType="text" attribName="DLV_UNIT_ISO" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_REA_FOR_RE_attribKey" workflowType="text" attribName="REA_FOR_RE" mboType="string"/>
+              <Mapping workflowKey="SalesOrderGetStatus_PURCH_NO_C_attribKey" workflowType="text" attribName="PURCH_NO_C" mboType="string"/>
+
+            </OutputBinding>
+          </Method>
+        </Methods>
+      </Action>
+      <Action name="Create" sourcescreen="SalesOrderCreate" targetscreen="Cust_Details" errorscreen="">
+        <Methods>
+          <Method type="replay" mbo="SalesOrderCreate" package="GBI_SalesApp:1.0" showCredScreenOnAuthFailure="true" >
+            <InputBinding optype="create" opname="createSalesOrder" generateOld="false">
+                      <Value sourceType="Key"  paramName="ORDER_HEADER_IN" mboType="structure" >
+                      <Value sourceType="Key" attribName="REFOBJTYPE" mboType="string"/>
+                      <Value sourceType="Key" attribName="REFOBJKEY" mboType="string"/>
+                      <Value sourceType="Key" attribName="REFDOCTYPE" mboType="string"/>
+                      <Value sourceType="Key" workflowKey="Sales_Type" attribName="DOC_TYPE" mboType="string"/>
+                      <Value sourceType="Key" attribName="COLLECT_NO" mboType="string"/>
+                      <Value sourceType="Key" workflowKey="Sales_Organization" attribName="SALES_ORG" mboType="string"/>
+                      <Value sourceType="Key" workflowKey="Distribution_Channel" attribName="DISTR_CHAN" mboType="string"/>
+                      <Value sourceType="Key" workflowKey="Sales_Division" attribName="DIVISION" mboType="string"/>
+                      <Value sourceType="Key" workflowKey="Sales_Group" attribName="SALES_GRP" mboType="string"/>
+                      <Value sourceType="Key" workflowKey="Sales_Office" attribName="SALES_OFF" mboType="string"/>
+                      <Value sourceType="Key" workflowKey="Req_Date" attribName="REQ_DATE_H" mboType="date"/>
+                      <Value sourceType="Key" attribName="DATE_TYPE" mboType="string"/>
+                      <Value sourceType="Key" workflowKey="Purchase_Date" attribName="PURCH_DATE" mboType="date"/>
+                      <Value sourceType="Key" attribName="PO_METHOD" mboType="string"/>
+                      <Value sourceType="Key" attribName="PO_SUPPLEM" mboType="string"/>
+                      <Value sourceType="Key" attribName="REF_1" mboType="string"/>
+                      <Value sourceType="Key" attribName="NAME" mboType="string"/>
+                      <Value sourceType="Key" attribName="TELEPHONE" mboType="string"/>
+                      <Value sourceType="Key" attribName="PRICE_GRP" mboType="string"/>
+                      <Value sourceType="Key" attribName="CUST_GROUP" mboType="string"/>
+                      <Value sourceType="Key" attribName="SALES_DIST" mboType="string"/>
+                      <Value sourceType="Key" attribName="PRICE_LIST" mboType="string"/>
+                      <Value sourceType="Key" attribName="INCOTERMS1" mboType="string"/>
+                      <Value sourceType="Key" attribName="INCOTERMS2" mboType="string"/>
+                      <Value sourceType="Key" attribName="PMNTTRMS" mboType="string"/>
+                      <Value sourceType="Key" attribName="DLV_BLOCK" mboType="string"/>
+                      <Value sourceType="Key" attribName="BILL_BLOCK" mboType="string"/>
+                      <Value sourceType="Key" attribName="ORD_REASON" mboType="string"/>
+                      <Value sourceType="Key" attribName="COMPL_DLV" mboType="string"/>
+                      <Value sourceType="Key" attribName="PRICE_DATE" mboType="date"/>
+                      <Value sourceType="Key" attribName="QT_VALID_F" mboType="date"/>
+                      <Value sourceType="Key" attribName="QT_VALID_T" mboType="date"/>
+                      <Value sourceType="Key" attribName="CT_VALID_F" mboType="date"/>
+                      <Value sourceType="Key" attribName="CT_VALID_T" mboType="date"/>
+                      <Value sourceType="Key" attribName="CUST_GRP1" mboType="string"/>
+                      <Value sourceType="Key" attribName="CUST_GRP2" mboType="string"/>
+                      <Value sourceType="Key" attribName="CUST_GRP3" mboType="string"/>
+                      <Value sourceType="Key" attribName="CUST_GRP4" mboType="string"/>
+                      <Value sourceType="Key" attribName="CUST_GRP5" mboType="string"/>
+                      <Value sourceType="Key" attribName="PURCH_NO_C" mboType="string"/>
+                      <Value sourceType="Key" attribName="PURCH_NO_S" mboType="string"/>
+                      <Value sourceType="Key" attribName="PO_DAT_S" mboType="date"/>
+                      <Value sourceType="Key" attribName="PO_METH_S" mboType="string"/>
+                      <Value sourceType="Key" attribName="REF_1_S" mboType="string"/>
+                      <Value sourceType="Key" attribName="SD_DOC_CAT" mboType="string"/>
+                      <Value sourceType="Key" attribName="DOC_DATE" mboType="date"/>
+                      <Value sourceType="Key" attribName="WAR_DATE" mboType="date"/>
+                      <Value sourceType="Key" attribName="SHIP_COND" mboType="string"/>
+                      <Value sourceType="Key" attribName="PP_SEARCH" mboType="string"/>
+                      <Value sourceType="Key" attribName="DUN_COUNT" mboType="decimal"/>
+                      <Value sourceType="Key" attribName="DUN_DATE" mboType="date"/>
+                      <Value sourceType="Key" attribName="DLVSCHDUSE" mboType="string"/>
+                      <Value sourceType="Key" attribName="PLDLVSTYP" mboType="string"/>
+                      <Value sourceType="Key" attribName="REF_DOC" mboType="string"/>
+                      <Value sourceType="Key" attribName="COMP_CDE_B" mboType="string"/>
+                      <Value sourceType="Key" attribName="ALTTAX_CLS" mboType="string"/>
+                      <Value sourceType="Key" attribName="TAX_CLASS2" mboType="string"/>
+                      <Value sourceType="Key" attribName="TAX_CLASS3" mboType="string"/>
+                      <Value sourceType="Key" attribName="TAX_CLASS4" mboType="string"/>
+                      <Value sourceType="Key" attribName="TAX_CLASS5" mboType="string"/>
+                      <Value sourceType="Key" attribName="TAX_CLASS6" mboType="string"/>
+                      <Value sourceType="Key" attribName="TAX_CLASS7" mboType="string"/>
+                      <Value sourceType="Key" attribName="TAX_CLASS8" mboType="string"/>
+                      <Value sourceType="Key" attribName="TAX_CLASS9" mboType="string"/>
+                      <Value sourceType="Key" attribName="REF_DOC_L" mboType="string"/>
+                      <Value sourceType="Key" attribName="ASS_NUMBER" mboType="string"/>
+                      <Value sourceType="Key" attribName="REFDOC_CAT" mboType="string"/>
+                      <Value sourceType="Key" attribName="ORDCOMB_IN" mboType="string"/>
+                      <Value sourceType="Key" attribName="BILL_SCHED" mboType="string"/>
+                      <Value sourceType="Key" attribName="INVO_SCHED" mboType="string"/>
+                      <Value sourceType="Key" attribName="MN_INVOICE" mboType="string"/>
+                      <Value sourceType="Key" attribName="EXRATE_FI" mboType="decimal"/>
+                      <Value sourceType="Key" attribName="ADD_VAL_DY" mboType="string"/>
+                      <Value sourceType="Key" attribName="FIX_VAL_DY" mboType="date"/>
+                      <Value sourceType="Key" attribName="PYMT_METH" mboType="string"/>
+                      <Value sourceType="Key" attribName="ACCNT_ASGN" mboType="string"/>
+                      <Value sourceType="Key" attribName="EXCHG_RATE" mboType="decimal"/>
+                      <Value sourceType="Key" attribName="BILL_DATE" mboType="date"/>
+                      <Value sourceType="Key" attribName="SERV_DATE" mboType="date"/>
+                      <Value sourceType="Key" attribName="DUNN_KEY" mboType="string"/>
+                      <Value sourceType="Key" attribName="DUNN_BLOCK" mboType="string"/>
+                      <Value sourceType="Key" attribName="PMTGAR_PRO" mboType="string"/>
+                      <Value sourceType="Key" attribName="DEPARTM_NO" mboType="string"/>
+                      <Value sourceType="Key" attribName="REC_POINT" mboType="string"/>
+                      <Value sourceType="Key" attribName="DOC_NUM_FI" mboType="string"/>
+                      <Value sourceType="Key" attribName="CSTCNDGRP1" mboType="string"/>
+                      <Value sourceType="Key" attribName="CSTCNDGRP2" mboType="string"/>
+                      <Value sourceType="Key" attribName="CSTCNDGRP3" mboType="string"/>
+                      <Value sourceType="Key" attribName="CSTCNDGRP4" mboType="string"/>
+                      <Value sourceType="Key" attribName="CSTCNDGRP5" mboType="string"/>
+                      <Value sourceType="Key" attribName="DLV_TIME" mboType="string"/>
+                      <Value sourceType="Key" attribName="CURRENCY" mboType="string"/>
+                      <Value sourceType="Key" attribName="CURR_ISO" mboType="string"/>
+                      <Value sourceType="Key" attribName="CREATED_BY" mboType="string"/>
+                      <Value sourceType="Key" attribName="TAXDEP_CTY" mboType="string"/>
+                      <Value sourceType="Key" attribName="TAXDST_CTY" mboType="string"/>
+                      <Value sourceType="Key" attribName="EUTRI_DEAL" mboType="string"/>
+                      <Value sourceType="Key" attribName="MAST_CONTR" mboType="string"/>
+                      <Value sourceType="Key" attribName="REF_PROC" mboType="string"/>
+                      <Value sourceType="Key" attribName="CHKPRTAUTH" mboType="string"/>
+                      <Value sourceType="Key" attribName="CMLQTY_DAT" mboType="date"/>
+                      <Value sourceType="Key" attribName="VERSION" mboType="string"/>
+                      <Value sourceType="Key" attribName="NOTIF_NO" mboType="string"/>
+                      <Value sourceType="Key" attribName="WBS_ELEM" mboType="string"/>
+                      <Value sourceType="Key" attribName="EXCH_RATE_FI_V" mboType="decimal"/>
+                      <Value sourceType="Key" attribName="EXCHG_RATE_V" mboType="decimal"/>
+                      <Value sourceType="Key" attribName="FKK_CONACCT" mboType="string"/>
+                      <Value sourceType="Key" attribName="CAMPAIGN" mboType="binary"/>
+                      <Value sourceType="Key" attribName="DOC_CLASS" mboType="string"/>
+                      <Value sourceType="Key" attribName="H_CURR" mboType="string"/>
+                      <Value sourceType="Key" attribName="H_CURR_ISO" mboType="string"/>
+                      <Value sourceType="Key" attribName="SHIP_TYPE" mboType="string"/>
+                      <Value sourceType="Key" attribName="S_PROC_IND" mboType="string"/>
+                      <Value sourceType="Key" attribName="REF_DOC_L_LONG" mboType="string"/>
+                      <Value sourceType="Key" attribName="LINE_TIME" mboType="time"/>
+                      <Value sourceType="Key" attribName="CALC_MOTIVE" mboType="string"/>
+                      </Value>
+                      <Value sourceType="Key"  paramName="ORDER_ITEMS_IN" mboType="structure" array="true">
+                      </Value>
+                      <Value sourceType="Key"  paramName="ORDER_PARTNERS" mboType="structure" array="true">
+                      </Value>			    
+                
+            </InputBinding>
+            <OutputBinding/>
+          </Method>
+        </Methods>
+      </Action>
+    </Actions>
+    <Notifications>
+    </Notifications>
+  </Triggers>
+</Workflow>
+        

@@ -1,0 +1,51 @@
+/* fix for CR666333-1 */
+.ui-select select { display: none; }
+
+/*CR677614-1 , commented the same line inside of jquery.mobile-1.0a4.1.css,  In this file, removed  height setting fixed this issue*/
+textarea.ui-input-text { -webkit-transition: height 200ms linear; -moz-transition: height 200ms linear; -o-transition: height 200ms linear; transition: height 200ms linear; }
+
+/* fix for cr664845-1 & cr665369-1, labels on left, labels on right */
+label.left, label.right, label.rightlabel { font-size: 16px; display: inline-block; font-weight: normal; vertical-align:top; margin: 0 0 .3em; width: 33%; }
+input.left, input.right { background-image: none; padding: .4em; line-height: 1.4; font-size: 16px; display: inline-block; width: 60%; }
+textarea.left, textarea.right { background-image: none; padding: .4em; line-height: 1.4; font-size: 16px; display: inline-block; width: 60%; }
+select.left, select.right { background-image: none; padding: .4em; line-height: 1.4; font-size: 16px; display: inline-block; width: 60%; }
+
+/* CR 685204 Make single and multi-line edit boxes look the same when they are read-only */
+input.ui-input-text[readonly="readonly"] {opacity: .80;}
+textarea.ui-input-text[readonly="readonly"] {opacity: .80;}
+
+/* Fix for 690175, these lines must be below the label.left and input.left rules just above or they won't take effect */ 
+/* Use the block style display when in portait mode */
+label.ui-slider, .min-width-480px { display: block; }
+input.ui-slider-input, .min-width-480px input.ui-slider-input { display: inline-block; width: 50px; }
+
+/* fix for cr654822-1  */
+.ui-header .ui-btn-right { position: relative; font-size: 12px;  right:5px; float: right;  margin-right:0px;margin-top:2px;}
+.ui-header .ui-btn-left {  position: relative;  font-size: 12px;  left:5px; float: left; margin-left:0px; margin-top:2px; }
+.ui-header .ui-title { display:inline-block; font-size: 18px; margin-top: 0.6em; margin-bottom:0.6em;  margin-right: 3px; margin-left:3px; }
+
+/* fix for CR658473-1*/
+.ui-footer { padding-left:0px; padding-right: 0px; margin-left:0px; margin-right: 0px}
+.ui-footer .ui-btn-right {position: relative;  font-size: 12px; right:5px; float:right;  margin-right:0px;margin-top:0px;}
+.ui-footer .ui-btn-left  {position: relative;  font-size: 12px; left: 5px; float:left ;  margin-right:0px; margin-top:0px;}
+.ui-footer .ui-btn-center { display:inline-block; font-size: 12px;  margin-right: 3px;  margin-left:3px; margin-top:0px;}
+.ui-page {z-index:0 }
+
+/* fix for cr660804-1*/
+.ui-icon-plus-pixelratio-2 {
+    background-position:    0 0;
+}
+.ui-icon-arrow-r-pixelratio-2 {
+    background-position:     -108px 0;
+}
+.ui-icon-arrow-l-pixelratio-2 {
+    background-position:     -144px 0;
+}
+.ui-icon-arrow-d-pixelratio-2 {
+    background-position:    -216px 0;
+}
+/* fix for CR669283-1 */
+.ui-selectmenu .ui-btn-text {display: block; min-height: 1em; }
+.ui-selectmenu  .ui-li .ui-btn-inner a.ui-link-inherit { padding: .7em .7em .7em 15px; display: block; }
+
+.ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li { padding: .7em 20px .7em 15px; display: block; }

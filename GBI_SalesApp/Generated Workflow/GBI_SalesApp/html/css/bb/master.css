@@ -1,0 +1,45 @@
+ body {
+    background:black;
+    font-family:Helvetica;
+    color:white;
+ }
+ 
+ span.help {
+  color:red;
+  font-style:italic;
+}
+ 
+ .left {
+     clear: left;
+     float:left;
+     margin:0px 5px;
+ }
+
+ input, textarea, label, select, .input{
+     font-size:1.2em;
+ }
+ 
+ label {
+     color:#eee;
+     text-align:left;
+     margin:3x 3px;
+}
+
+ label.top {
+    display:block;
+ }
+ 
+ div.attachment {
+    font-size:1.2em;
+    height:42px;
+    margin: 10px 0px;
+ }
+ 
+ .attachmentIcon {
+     background-image: url(img/ic_menu_attachment.png);
+     background-repeat: no-repeat;
+     background-position:left;
+     height:28px;
+     width: 48px;
+     border:none;
+  }

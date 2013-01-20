@@ -1,0 +1,194 @@
+/*
+ * Sybase Mobile Workflow version 2.1.3
+ *
+ * Stylesheet.css
+ * This file will not be regenerated, and it is expected that the user may want to
+ * include customized code herein.
+ *
+ * The template used to create this file was compiled on Tue May 29 14:49:18 CEST 2012
+ *
+ * Copyright (c) 2010 Sybase Inc. All rights reserved.
+ */
+
+/*-------Non native menu bar used on iPhone and Windows------------------------*/
+ul.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+ul.menu li {
+    float: left;
+    background: -webkit-gradient(linear, left top, left bottom, from(#9faec5), to(#5d718c));
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+
+a.nav {
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+a.nav:hover, a:active {
+    background-color: #486996;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+/*-------Screen form elements excluding the listview---------------------------*/
+body {
+    font-size: small;
+    font-family: serif;
+    margin: 0px;
+}
+
+form {
+    padding-left: 5px;
+    padding-right: 8px;
+}
+
+span.help {
+    color: red;
+    font-style: italic;
+}
+
+table.screen {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.screen td {
+    margin: 0px;
+    padding: 2px 0px 2px 0px;
+}
+
+td.left {
+    width: 33%;
+}
+
+td.right {
+    width: 67%;
+}
+
+label {
+    font-family: serif;
+}
+
+label.rightlabel {
+    padding-left: 4px;
+}
+
+input.right {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+input.rightcheckbox {
+    text-align: left;
+}
+
+select.right {
+    width: 100%;
+    margin: 0px;
+}
+
+textarea.right {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+h3.screenTitle {
+    text-align: center;
+    font-family: sans-serif;
+    padding: 3px;
+    margin: 0px;
+}
+
+/*-------Listview--------------------------------------------------------------*/
+ul.listview {
+    margin: 0;
+    padding: 0;
+}
+
+table.listview {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.listview td {
+    padding: 0px 0px 0px 0px;
+}
+
+table.listview b {
+}
+
+table.listview i {
+}
+
+table.listview plain {
+}
+
+table.listview td.italics {
+}
+
+table.listview td.lastLine {
+    border-bottom: 1px solid Silver;
+}
+
+table.listview td.firstLine {
+    border-top: 1px solid Silver;
+}
+
+table.listview td.firstAndLastLine {
+    border-top: 1px solid Silver;
+    border-bottom: 1px solid Silver;
+}
+
+table.listview tr.evenrow {
+    vertical-align: middle;
+    width: 100%;
+/*  background: yellow;    uncomment to add an alt row color to all listviews, also works around a problem with bb5, tr.hover and altrow color when specified in the designer */
+}
+
+table.listview tr.oddrow {
+    vertical-align: middle;
+    width: 100%;
+}
+
+table.listview tr.evenrow:hover {
+    background-color:#2175F7;
+    color:White
+}
+
+table.listview tr.oddrow:hover {
+    background-color:#2175F7;
+    color:White
+} 
+
+/*-------Async Wait Dialog-----------------------------------------------------*/
+.wait_background {
+	background-color: black;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	opacity: 0.6;
+	filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=60)";
+	z-index: 2;
+}
+
+.wait_dialog {
+	background-color: white;
+	border: 2px solid silver;
+	padding: 20px;
+	position: absolute;
+	z-index: 3;
+}

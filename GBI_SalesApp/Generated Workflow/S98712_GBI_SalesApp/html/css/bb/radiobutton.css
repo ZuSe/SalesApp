@@ -1,0 +1,27 @@
+.radiobutton {
+    clear:both;
+    padding:0em;
+}
+
+.radiobutton.separateline {
+    padding-top: 0px;
+    border-top: 1px solid black;
+}
+ 
+div.icon_36X40 {
+    width: 36px;
+    height: 40px;
+    margin-left:3px;
+    margin-right:3px;
+    border:none;
+    float:right;
+}
+  
+div.radioBt_icon_off {
+    background: url(img/btn_radio_off.png) no-repeat;
+}
+ 
+div.radioBt_icon_on {
+    background: url(img/btn_radio_on.png) no-repeat;
+}
+ 

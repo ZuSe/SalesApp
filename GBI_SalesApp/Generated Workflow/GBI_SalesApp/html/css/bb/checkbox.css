@@ -1,0 +1,9 @@
+.checkbox {
+   clear:both;
+}
+  
+ input[type="checkbox"]{
+	width: 36px; 
+	height: 36px; 
+ }
+    

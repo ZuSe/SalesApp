@@ -1,0 +1,159 @@
+
+
+ div.datepicker, div.timepicker ,div.datetimepicker{
+     background-image: url(img/datepickerbackground.png) ;
+     background-repeat: no-repeat;
+     background-position:center;
+     width:289px;
+     height:276px;
+     
+     position:relative;
+     top: -20px;
+ }
+ 
+ div.datetimepicker {
+    background-image: url(img/datetimepickerbackground.png) ;
+     background-repeat: no-repeat;
+     background-position:center;
+     width:460px;
+ }
+ 
+ div.pickerTile {
+    padding:24px 0px;
+    padding-left: 52px;
+ }
+
+ div.pickerTile  .titleIcon {
+    display:none;
+  }
+
+ div.pickerTile .title {
+     font-size: 1.2em;
+     color:white;
+ }
+ 
+ div.separator {
+     display:none;
+ }
+ 
+ .slots {
+     height:104px;
+     margin:10px 15px;
+     border:none;
+ }
+ 
+
+ div.datetimepicker .slots {
+     margin:10px 5px;
+     height:104px;
+ }
+ 
+ .dateSlots {
+    float:left;
+    margin:0px 15px;
+    
+ }
+ 
+ .dateSlots .slot {
+    margin: 0px 3px;
+ }
+ .timeSlots {
+    float:left;
+    margin:0px 15px;
+ }
+ 
+ .timeSlots .slot {
+    margin: 0px 0px;
+ }
+ 
+  
+ .buttonGroup {
+    width:280px;
+    height: 46px;
+    padding:30px 0px;
+ }
+ 
+ .buttonGroup.timepickerButtongroup {
+     width:260px;
+ }
+ 
+ div.datetimepicker .buttonGroup {
+    width:440px;
+ }
+ 
+ .picker_button {
+     background-image: url(img/buttonbackground.png) ;
+     background-repeat: no-repeat;
+     background-position:center;
+     margin:8px 14px;
+     width:94px;
+     text-align: center;
+     height:33px;
+     border:none;
+  
+ }
+ 
+ div.datetimepicker .picker_button {
+      margin:8px 34px;
+ }
+ 
+ .slot{
+      background:rgb(234,234,234);
+      border:1px solid rgb(116,117,116);
+       float:left;
+       margin:0px 10px;
+       width:45px;
+  }
+  
+  div.timepicker  .slots {
+     margin:10px 5px;
+ }
+ div.datepicker  .slot{
+       width:60px;
+       background:red;
+  }
+  
+ .slotText {
+     background-image: url(img/dateTextbackground.png) ;
+     background-repeat: no-repeat;
+     background-position:center; 
+     border:none;
+     text-align: center;
+     font-weight:bold;
+     font-size:1.4em;
+     color:black;
+     margin:0px 0px;
+     width:60px;
+     
+ }
+ 
+  .slot.switchButton {
+    margin:48px 16px;
+    width:32px;
+    
+ }
+ 
+ .image_button {
+     border: none;
+     background:white;
+     padding: 12px 0px;
+     margin:0px 0px;
+     width:60px;
+    
+  }
+ 
+ .upButton  {
+     background-image: url(img/upButton.png) ;
+     background-repeat: no-repeat;
+     background-position:center;
+     border-bottom:2px solid rgb(116,117,116);
+  }  
+  .downButton{
+     background-image: url(img/downButton.png);
+     background-repeat: no-repeat;
+     background-position:center;
+     border-top:2px solid rgb(183,181,183);
+   }
+ 
+ 
+ 

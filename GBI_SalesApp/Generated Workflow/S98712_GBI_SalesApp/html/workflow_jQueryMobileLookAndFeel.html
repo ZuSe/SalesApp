@@ -1,0 +1,1092 @@
+﻿<!doctype html>
+<!-- Warning, this file is overwritten with each run of the package generation wizard -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <meta name="HandheldFriendly" content="True" />
+        <meta http-equiv="PRAGMA" content="NO-CACHE" />
+        <meta name="viewport" content="minimum-scale=.25, initial-scale=1" />
+
+        <script src="js/API.js"></script>
+        <script src="js/Callbacks.js"></script>
+        <script src="js/Camera.js"></script>
+        <script src="js/Certificate.js"></script>
+        <script src="js/Custom.js"></script>
+        <script src="js/ExternalResource.js"></script>
+        <script src="js/jquery/jquery-1.6.4.js"></script>
+        <script src="js/jquery/jquery.mobile-1.0.js"></script>
+        <script src="js/json2.js"></script>
+        <script src="js/Resources.js"></script>
+        <script src="js/SUPStorage.js"></script>
+        <script src="js/Timezone.js"></script>
+        <script src="js/Utils.js"></script>
+        <script src="js/widgets/sy.ui.iphone.customButton.js"></script>
+        <script src="js/widgets/sy.ui.iphone.customFixPositionForm.js"></script>
+        <script src="js/widgets/sy.ui.iphone.iscroll.js"></script>
+        <script src="js/widgets/sy.ui.iphone.listview.js"></script>
+        <script src="js/widgets/sy.ui.iphone.menuBars.js"></script>
+        <script src="js/widgets/sy.ui.iphone.menus.js"></script>
+        <script src="js/widgets/sy.ui.iphone.picker.js"></script>
+        <script src="js/widgets/sy.ui.iphone.signature.js"></script>
+        <script src="js/widgets/sy.ui.iphone.util.js"></script>
+        <script src="js/Workflow.js"></script>
+        <script src="js/WorkflowMessage.js"></script>
+        <link rel="stylesheet" href="css/iphone/actionSheet.css" type="text/css" />
+        <link rel="stylesheet" href="css/iphone/customButton.css" type="text/css" />
+        <link rel="stylesheet" href="css/iphone/listview.css" type="text/css" />
+        <link rel="stylesheet" href="css/iphone/picker.css" type="text/css" />
+        <link rel="stylesheet" href="css/iphone/signature.css" type="text/css" />
+        <link rel="stylesheet" href="css/iphone/Stylesheet.css" type="text/css" />
+        <link rel="stylesheet" href="css/jquery/jquery.mobile-1.0.css" type="text/css" />
+        <link rel="stylesheet" href="css/jquery/jquery.mobile.fix.css" type="text/css" />
+   	
+       	<script>
+       	    function jqueryMobileOnPageLoad() {
+       	        if ( isIPad() ) {
+       	      	    var vp = $( "meta[name='viewport']" );
+             	    vp.attr( "content", 'minimum-scale=.25, initial-scale=' +  parseFloat( window.innerWidth / screen.width ) + '"' );
+                }
+                else if ( !isIOS() ) {
+       	      	    var vp = $( "meta[name='viewport']" );
+             	    vp.attr( "content", 'minimum-scale=1, maximum-scale=1' );
+                }
+               $.mobile.changePage( $('#'+ getCurrentScreen()+'ScreenDiv'), { reverse:false, changeHash: false });
+            }
+        </script>
+       	
+      
+        <style type="text/css">
+           .SalesOrders_defaultColor.ui-btn-down-c {	background: #4596ce; background-image:   } 
+           .SalesOrders_alternateColor {background:#c0c0c0}
+           .SalesOrders_alternateColor.ui-btn-down-c {  background:#3f3f3f ; background-image:   }
+        </style>
+     </head>
+    <body onload="onWorkflowLoad();">
+<div data-role="page"  data-theme='a'  id="dummy"></div> <!--jquery mobile always show fisrt page, add a dummy empty page; -->
+     
+    <div data-role="page" data-theme='a' id="StartScreenDiv" sup_screen_title="Start" style="; background: black" sup_menuitems="Customer Detail,CustomerGetDetails,Cancel,Cancel" sup_okaction="doCancelAction()">
+        
+      <div data-role="header"  data-theme="a" data-position="inline"> 
+       <a href="javascript:void(0)" data-icon="arrow-l" id="StartScreenDivCancel" name="Cancel" onclick="menuItemCallbackStartCancel();"> Cancel</a>
+       <h1>Start</h1> 
+       <a href="javascript:void(0)" id="StartScreenDivCustomer_Detail" name="Customer Detail" onclick="menuItemCallbackStartCustomerGetDetails();"> Customer Detail</a>
+       
+     </div> 
+     <div data-role="content" class="wrapper" >	
+       <div data-role="scroller">
+
+        <form style="margin: 0px;" name="StartForm" id="StartForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="false">
+           
+          <div class="customTopOfFormStyle"  ><span id="StartForm_help" class="help"></span></div>
+          <div class="customTopOfFormStyle"   id="topOfStartForm"></div>
+        <div id="HTML_Key" sup_html_type="htmlview">
+                <h2>GBI_SalesApp</h2>
+        </div> 
+          <div class="choice">
+    
+          <label class="left" for="Select_Customer">Select Customer</label>
+            <select class="right" id="Select_Customer" sup_num_of_decimals="0" sup_html_type="text"  sup_default_value="0000012000" sup_static_options="true" onblur="validateControl('Start', 'Select_Customer', this)">            
+                        <option SELECTED value="0000012000">Northwest Bikes</option>
+                        <option value="0000004000">Peachtree Bikes</option>
+                        <option value="0000025011">The Bike Zone</option>
+                        <option value="0000008000">Motown Bikes</option>
+                    </select><span id="Start_Select_Customer_help" class="help"></span>
+          </div>
+ 
+           <div class="customBottomOfFormStyle"   id="bottomOfStartForm"></div>       
+        </form>
+       </div>
+     </div>  <!-- end of content -->
+    <div data-role="footer"  data-theme="a" style="display:none" class="ui-bar"></div>
+  
+    </div> <!-- end of screen Start -->
+     
+    <div data-role="page" data-theme='a' id="Cust_DetailsScreenDiv" sup_screen_title="Cust Details" style="; background: black" sup_menuitems="View SalesOrders,SalesOrderGetList,Create Sales Order,Create_Sales_Order,Back,Back" sup_okaction="doCancelAction()">
+        
+      <div data-role="header"  data-theme="a" data-position="inline"> 
+       <a href="javascript:void(0)" data-icon="arrow-l" id="Cust_DetailsScreenDivCancel" name="Cancel" onclick="menuItemCallbackCust_DetailsCancel();"> Cancel</a>
+       <h1>Cust Details</h1> 
+       <a href="javascript:void(0)" id="Cust_DetailsScreenDivBack" name="Back" onclick="menuItemCallbackCust_DetailsBack();"> Back</a>
+       
+     </div> 
+     <div data-role="content" class="wrapper" >	
+       <div data-role="scroller">
+
+        <form style="margin: 0px;" name="Cust_DetailsForm" id="Cust_DetailsForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="false">
+           
+          <div class="customTopOfFormStyle"  ><span id="Cust_DetailsForm_help" class="help"></span></div>
+          <div class="customTopOfFormStyle"   id="topOfCust_DetailsForm"></div> 
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_Custo_No_attribKey">Custo No:</label>
+            <input class="right" type="text" id="CustomerGetDetails_Custo_No_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Cust_Details', 'CustomerGetDetails_Custo_No_attribKey', this)"/><span id="Cust_Details_CustomerGetDetails_Custo_No_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_FORM_OF_AD_attribKey">FORM OF AD:</label>
+            <input class="right" type="text" id="CustomerGetDetails_FORM_OF_AD_attribKey" sup_html_type="text"  sup_max_length="30" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Cust_Details', 'CustomerGetDetails_FORM_OF_AD_attribKey', this)"/><span id="Cust_Details_CustomerGetDetails_FORM_OF_AD_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_FIRST_NAME_attribKey">FIRST NAME:</label>
+            <input class="right" type="text" id="CustomerGetDetails_FIRST_NAME_attribKey" sup_html_type="text"  sup_max_length="35" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Cust_Details', 'CustomerGetDetails_FIRST_NAME_attribKey', this)"/><span id="Cust_Details_CustomerGetDetails_FIRST_NAME_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_NAME_attribKey">NAME:</label>
+            <input class="right" type="text" id="CustomerGetDetails_NAME_attribKey" sup_html_type="text"  sup_max_length="35" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Cust_Details', 'CustomerGetDetails_NAME_attribKey', this)"/><span id="Cust_Details_CustomerGetDetails_NAME_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_STREET_attribKey">STREET:</label>
+            <input class="right" type="text" id="CustomerGetDetails_STREET_attribKey" sup_html_type="text"  sup_max_length="35" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Cust_Details', 'CustomerGetDetails_STREET_attribKey', this)"/><span id="Cust_Details_CustomerGetDetails_STREET_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_POSTL_CODE_attribKey">POSTL CODE:</label>
+            <input class="right" type="text" id="CustomerGetDetails_POSTL_CODE_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Cust_Details', 'CustomerGetDetails_POSTL_CODE_attribKey', this)"/><span id="Cust_Details_CustomerGetDetails_POSTL_CODE_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_CITY_attribKey">CITY:</label>
+            <input class="right" type="text" id="CustomerGetDetails_CITY_attribKey" sup_html_type="text"  sup_max_length="35" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Cust_Details', 'CustomerGetDetails_CITY_attribKey', this)"/><span id="Cust_Details_CustomerGetDetails_CITY_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_REGION_attribKey">REGION:</label>
+            <input class="right" type="text" id="CustomerGetDetails_REGION_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Cust_Details', 'CustomerGetDetails_REGION_attribKey', this)"/><span id="Cust_Details_CustomerGetDetails_REGION_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_COUNTRY_attribKey">COUNTRY:</label>
+            <input class="right" type="text" id="CustomerGetDetails_COUNTRY_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Cust_Details', 'CustomerGetDetails_COUNTRY_attribKey', this)"/><span id="Cust_Details_CustomerGetDetails_COUNTRY_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_COUNTRNISO_attribKey">COUNTRNISO:</label>
+            <input class="right" type="text" id="CustomerGetDetails_COUNTRNISO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Cust_Details', 'CustomerGetDetails_COUNTRNISO_attribKey', this)"/><span id="Cust_Details_CustomerGetDetails_COUNTRNISO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_COUNTRAISO_attribKey">COUNTRAISO:</label>
+            <input class="right" type="text" id="CustomerGetDetails_COUNTRAISO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Cust_Details', 'CustomerGetDetails_COUNTRAISO_attribKey', this)"/><span id="Cust_Details_CustomerGetDetails_COUNTRAISO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_TELEPHONE_attribKey">TELEPHONE:</label>
+            <input class="right" type="text" id="CustomerGetDetails_TELEPHONE_attribKey" sup_html_type="text"  sup_max_length="16" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Cust_Details', 'CustomerGetDetails_TELEPHONE_attribKey', this)"/><span id="Cust_Details_CustomerGetDetails_TELEPHONE_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_LANGU_attribKey">LANGU:</label>
+            <input class="right" type="text" id="CustomerGetDetails_LANGU_attribKey" sup_html_type="text"  sup_max_length="1" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Cust_Details', 'CustomerGetDetails_LANGU_attribKey', this)"/><span id="Cust_Details_CustomerGetDetails_LANGU_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_LANGU_ISO_attribKey">LANGU ISO:</label>
+            <input class="right" type="text" id="CustomerGetDetails_LANGU_ISO_attribKey" sup_html_type="text"  sup_max_length="2" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Cust_Details', 'CustomerGetDetails_LANGU_ISO_attribKey', this)"/><span id="Cust_Details_CustomerGetDetails_LANGU_ISO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_CURRENCY_attribKey">CURRENCY:</label>
+            <input class="right" type="text" id="CustomerGetDetails_CURRENCY_attribKey" sup_html_type="text"  sup_max_length="5" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Cust_Details', 'CustomerGetDetails_CURRENCY_attribKey', this)"/><span id="Cust_Details_CustomerGetDetails_CURRENCY_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_CURRENCY_ISO_attribKey">CURRENCY ISO:</label>
+            <input class="right" type="text" id="CustomerGetDetails_CURRENCY_ISO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Cust_Details', 'CustomerGetDetails_CURRENCY_ISO_attribKey', this)"/><span id="Cust_Details_CustomerGetDetails_CURRENCY_ISO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_COUNTRYISO_attribKey">COUNTRYISO:</label>
+            <input class="right" type="text" id="CustomerGetDetails_COUNTRYISO_attribKey" sup_html_type="text"  sup_max_length="2" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Cust_Details', 'CustomerGetDetails_COUNTRYISO_attribKey', this)"/><span id="Cust_Details_CustomerGetDetails_COUNTRYISO_attribKey_help" class="help"></span>
+          </div>
+ 
+           <div class="customBottomOfFormStyle"   id="bottomOfCust_DetailsForm"></div>       
+        </form>
+       </div>
+     </div>  <!-- end of content -->
+     <div data-role="footer"  data-theme="a" class="ui-bar">
+        <a href="javascript:void(0)"  data-role="button"  id='Cust_DetailsScreenDivCreate_Sales_Order' name="Create Sales Order" onclick="menuItemCallbackCust_DetailsCreate_Sales_Order();"> Create Sales Order</a> 
+
+        <a href="javascript:void(0)"  data-role="button" class="ui-btn-right" id='Cust_DetailsScreenDivView_SalesOrders' name="View SalesOrders" onclick="menuItemCallbackCust_DetailsSalesOrderGetList();"> View SalesOrders</a> 
+       </div>
+  
+    </div> <!-- end of screen Cust Details -->
+     
+    <div data-role="page" data-theme='a' id="Order_DetailsScreenDiv" sup_screen_title="Order Details" style="; background: #c0c0c0" sup_menuitems="Back,Back,View Order Status,View_Order_Status" sup_okaction="doCancelAction()">
+        
+      <div data-role="header"  data-theme="a" data-position="inline"> 
+       <a href="javascript:void(0)" data-icon="arrow-l" id="Order_DetailsScreenDivCancel" name="Cancel" onclick="menuItemCallbackOrder_DetailsCancel();"> Cancel</a>
+       <h1>Order Details</h1> 
+       <a href="javascript:void(0)" id="Order_DetailsScreenDivBack" name="Back" onclick="menuItemCallbackOrder_DetailsBack();"> Back</a>
+       
+     </div> 
+     <div data-role="content" class="wrapper" >	
+       <div data-role="scroller">
+
+        <form style="margin: 0px;" name="Order_DetailsForm" id="Order_DetailsForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="false">
+           
+          <div class="customTopOfFormStyle"  ><span id="Order_DetailsForm_help" class="help"></span></div>
+          <div class="customTopOfFormStyle"   id="topOfOrder_DetailsForm"></div> 
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_CUST_NUM_attribKey">CUST NUM:</label>
+            <input class="right" type="text" id="SalesOrderGetList_CUST_NUM_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_CUST_NUM_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_CUST_NUM_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_SD_DOC_attribKey">SD DOC:</label>
+            <input class="right" type="text" id="SalesOrderGetList_SD_DOC_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_SD_DOC_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_SD_DOC_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_ITM_NUMBER_attribKey">ITM NUMBER:</label>
+            <input class="right" type="text" id="SalesOrderGetList_ITM_NUMBER_attribKey" sup_html_type="text"  sup_max_length="6" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_ITM_NUMBER_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_ITM_NUMBER_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_MATERIAL_attribKey">MATERIAL:</label>
+            <input class="right" type="text" id="SalesOrderGetList_MATERIAL_attribKey" sup_html_type="text"  sup_max_length="18" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_MATERIAL_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_MATERIAL_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_SHORT_TEXT_attribKey">SHORT TEXT:</label>
+            <input class="right" type="text" id="SalesOrderGetList_SHORT_TEXT_attribKey" sup_html_type="text"  sup_max_length="40" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_SHORT_TEXT_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_SHORT_TEXT_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_DOC_TYPE_attribKey">DOC TYPE:</label>
+            <input class="right" type="text" id="SalesOrderGetList_DOC_TYPE_attribKey" sup_html_type="text"  sup_max_length="4" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_DOC_TYPE_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_DOC_TYPE_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_REQ_QTY_attribKey">REQ QTY:</label>
+            <input class="right" type="number" id="SalesOrderGetList_REQ_QTY_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_REQ_QTY_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_REQ_QTY_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_PURCH_NO_attribKey">PURCH NO:</label>
+            <input class="right" type="text" id="SalesOrderGetList_PURCH_NO_attribKey" sup_html_type="text"  sup_max_length="20" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_PURCH_NO_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_PURCH_NO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_BATCH_attribKey">BATCH:</label>
+            <input class="right" type="text" id="SalesOrderGetList_BATCH_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_BATCH_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_BATCH_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_BILL_BLOCK_attribKey">BILL BLOCK:</label>
+            <input class="right" type="text" id="SalesOrderGetList_BILL_BLOCK_attribKey" sup_html_type="text"  sup_max_length="2" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_BILL_BLOCK_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_BILL_BLOCK_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_DLV_BLOCK_attribKey">DLV BLOCK:</label>
+            <input class="right" type="text" id="SalesOrderGetList_DLV_BLOCK_attribKey" sup_html_type="text"  sup_max_length="2" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_DLV_BLOCK_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_DLV_BLOCK_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_SOLD_TO_attribKey">SOLD TO:</label>
+            <input class="right" type="text" id="SalesOrderGetList_SOLD_TO_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_SOLD_TO_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_SOLD_TO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_NAME_attribKey">NAME:</label>
+            <input class="right" type="text" id="SalesOrderGetList_NAME_attribKey" sup_html_type="text"  sup_max_length="35" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_NAME_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_NAME_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_EXCHG_RATE_attribKey">EXCHG RATE:</label>
+            <input class="right" type="number" id="SalesOrderGetList_EXCHG_RATE_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_EXCHG_RATE_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_EXCHG_RATE_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_DLV_QTY_attribKey">DLV QTY:</label>
+            <input class="right" type="number" id="SalesOrderGetList_DLV_QTY_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_DLV_QTY_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_DLV_QTY_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_BASE_UOM_attribKey">BASE UOM:</label>
+            <input class="right" type="text" id="SalesOrderGetList_BASE_UOM_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_BASE_UOM_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_BASE_UOM_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_NET_PRICE_attribKey">NET PRICE:</label>
+            <input class="right" type="number" id="SalesOrderGetList_NET_PRICE_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_NET_PRICE_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_NET_PRICE_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_COND_P_UNT_attribKey">COND P UNT:</label>
+            <input class="right" type="number" id="SalesOrderGetList_COND_P_UNT_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_COND_P_UNT_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_COND_P_UNT_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_COND_UNIT_attribKey">COND UNIT:</label>
+            <input class="right" type="text" id="SalesOrderGetList_COND_UNIT_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_COND_UNIT_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_COND_UNIT_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_NET_VAL_HD_attribKey">NET VAL HD:</label>
+            <input class="right" type="number" id="SalesOrderGetList_NET_VAL_HD_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_NET_VAL_HD_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_NET_VAL_HD_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_NET_VALUE_attribKey">NET VALUE:</label>
+            <input class="right" type="number" id="SalesOrderGetList_NET_VALUE_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_NET_VALUE_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_NET_VALUE_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_DIVISION_attribKey">DIVISION:</label>
+            <input class="right" type="text" id="SalesOrderGetList_DIVISION_attribKey" sup_html_type="text"  sup_max_length="2" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_DIVISION_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_DIVISION_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_DOC_STATUS_attribKey">DOC STATUS:</label>
+            <input class="right" type="text" id="SalesOrderGetList_DOC_STATUS_attribKey" sup_html_type="text"  sup_max_length="20" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_DOC_STATUS_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_DOC_STATUS_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_SALES_GRP_attribKey">SALES GRP:</label>
+            <input class="right" type="text" id="SalesOrderGetList_SALES_GRP_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_SALES_GRP_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_SALES_GRP_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_SALES_OFF_attribKey">SALES OFF:</label>
+            <input class="right" type="text" id="SalesOrderGetList_SALES_OFF_attribKey" sup_html_type="text"  sup_max_length="4" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_SALES_OFF_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_SALES_OFF_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_SALES_ORG_attribKey">SALES ORG:</label>
+            <input class="right" type="text" id="SalesOrderGetList_SALES_ORG_attribKey" sup_html_type="text"  sup_max_length="4" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_SALES_ORG_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_SALES_ORG_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_SALES_UNIT_attribKey">SALES UNIT:</label>
+            <input class="right" type="text" id="SalesOrderGetList_SALES_UNIT_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_SALES_UNIT_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_SALES_UNIT_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_SHIP_POINT_attribKey">SHIP POINT:</label>
+            <input class="right" type="text" id="SalesOrderGetList_SHIP_POINT_attribKey" sup_html_type="text"  sup_max_length="4" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_SHIP_POINT_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_SHIP_POINT_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_DISTR_CHAN_attribKey">DISTR CHAN:</label>
+            <input class="right" type="text" id="SalesOrderGetList_DISTR_CHAN_attribKey" sup_html_type="text"  sup_max_length="2" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_DISTR_CHAN_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_DISTR_CHAN_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_CURRENCY_attribKey">CURRENCY:</label>
+            <input class="right" type="text" id="SalesOrderGetList_CURRENCY_attribKey" sup_html_type="text"  sup_max_length="5" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_CURRENCY_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_CURRENCY_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_PLANT_attribKey">PLANT:</label>
+            <input class="right" type="text" id="SalesOrderGetList_PLANT_attribKey" sup_html_type="text"  sup_max_length="4" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_PLANT_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_PLANT_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_STORE_LOC_attribKey">STORE LOC:</label>
+            <input class="right" type="text" id="SalesOrderGetList_STORE_LOC_attribKey" sup_html_type="text"  sup_max_length="4" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_STORE_LOC_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_STORE_LOC_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_ORD_REASON_attribKey">ORD REASON:</label>
+            <input class="right" type="text" id="SalesOrderGetList_ORD_REASON_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_ORD_REASON_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_ORD_REASON_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_REASON_REJ_attribKey">REASON REJ:</label>
+            <input class="right" type="text" id="SalesOrderGetList_REASON_REJ_attribKey" sup_html_type="text"  sup_max_length="2" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_REASON_REJ_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_REASON_REJ_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_B_UOM_ISO_attribKey">B UOM ISO:</label>
+            <input class="right" type="text" id="SalesOrderGetList_B_UOM_ISO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_B_UOM_ISO_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_B_UOM_ISO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_CD_UNT_ISO_attribKey">CD UNT ISO:</label>
+            <input class="right" type="text" id="SalesOrderGetList_CD_UNT_ISO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_CD_UNT_ISO_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_CD_UNT_ISO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_S_UNIT_ISO_attribKey">S UNIT ISO:</label>
+            <input class="right" type="text" id="SalesOrderGetList_S_UNIT_ISO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_S_UNIT_ISO_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_S_UNIT_ISO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_CURR_ISO_attribKey">CURR ISO:</label>
+            <input class="right" type="text" id="SalesOrderGetList_CURR_ISO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_CURR_ISO_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_CURR_ISO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_PURCH_NO_C_attribKey">PURCH NO C:</label>
+            <input class="right" type="text" id="SalesOrderGetList_PURCH_NO_C_attribKey" sup_html_type="text"  sup_max_length="35" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_PURCH_NO_C_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_PURCH_NO_C_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_EXCHG_RATE_V_attribKey">EXCHG RATE V:</label>
+            <input class="right" type="number" id="SalesOrderGetList_EXCHG_RATE_V_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_EXCHG_RATE_V_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_EXCHG_RATE_V_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_MAT_EXT_attribKey">MAT EXT:</label>
+            <input class="right" type="text" id="SalesOrderGetList_MAT_EXT_attribKey" sup_html_type="text"  sup_max_length="40" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_MAT_EXT_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_MAT_EXT_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_MAT_GUID_attribKey">MAT GUID:</label>
+            <input class="right" type="text" id="SalesOrderGetList_MAT_GUID_attribKey" sup_html_type="text"  sup_max_length="32" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_MAT_GUID_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_MAT_GUID_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_MAT_VERS_attribKey">MAT VERS:</label>
+            <input class="right" type="text" id="SalesOrderGetList_MAT_VERS_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_MAT_VERS_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_MAT_VERS_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetList_STATUS_DOC_attribKey">STATUS DOC:</label>
+            <input class="right" type="text" id="SalesOrderGetList_STATUS_DOC_attribKey" sup_html_type="text"  sup_max_length="1" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Details', 'SalesOrderGetList_STATUS_DOC_attribKey', this)"/><span id="Order_Details_SalesOrderGetList_STATUS_DOC_attribKey_help" class="help"></span>
+          </div>
+ 
+           <div class="customBottomOfFormStyle"   id="bottomOfOrder_DetailsForm"></div>       
+        </form>
+       </div>
+     </div>  <!-- end of content -->
+     <div data-role="footer"  data-theme="a" class="ui-bar">
+
+        <a href="javascript:void(0)"  data-role="button" class="ui-btn-right" id='Order_DetailsScreenDivView_Order_Status' name="View Order Status" onclick="menuItemCallbackOrder_DetailsView_Order_Status();"> View Order Status</a> 
+       </div>
+  
+    </div> <!-- end of screen Order Details -->
+     
+    <div data-role="page" data-theme='a' id="SalesOrdersScreenDiv" sup_screen_title="SalesOrders" style="; background: #c0c0c0" sup_menuitems="Cancel,Cancel" sup_okaction="doSaveActionWithoutReturn()">
+        
+      <div data-role="header"  data-theme="a" data-position="inline"> 
+       <a href="javascript:void(0)" data-icon="arrow-l" id="SalesOrdersScreenDivCancel" name="Cancel" onclick="menuItemCallbackSalesOrdersCancel();"> Cancel</a>
+       <h1>SalesOrders</h1> 
+     </div> 
+     <div data-role="content" class="wrapper" >	
+       <div data-role="scroller">
+
+        <form style="margin: 0px;" name="SalesOrdersForm" id="SalesOrdersForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="false">
+           
+          <div class="customTopOfFormStyle"  ><span id="SalesOrdersForm_help" class="help"></span></div>
+          <div class="customTopOfFormStyle"   id="topOfSalesOrdersForm"></div>
+          <div class="listview" screen="SalesOrders" id="SalesOrderGetList" wrap_data="false">
+            <script>
+                         var field0 = {id:'SalesOrderGetList_CUST_NUM_attribKey', name:'Customer' , width:40, height:0, static:false ,font:'bold',dataType:'TEXT'};
+                         var field1 = {id:'SalesOrderGetList_SD_DOC_attribKey', name:'Sales Document' , width:50, height:0, static:false ,font:'bold',dataType:'TEXT'};
+                         var line0=[ field0,field1 ] ;
+
+                         var lines =[line0];
+                         $('div[screen="SalesOrders"]#SalesOrderGetList').syListview ({
+                                   lines:lines,
+                                   onItemSelected: itemSelected,
+                                   showViewHeader:true,
+                                   onEmptyList:"",
+                                   alternateColor:"#c0c0c0",
+                                   reversedColor:"#3f3f3f",
+                                   inset:"false",
+                                   isLocalizedDisplay:"false",
+                                   createHeaderLater:false               
+                         });
+                  
+                         if (isBlackBerry()) {
+                             $('div[screen="SalesOrders"]#SalesOrderGetList').before('<div class="editbox" style="display:none"> <input type="text"/> </div>');
+                             $('div').live('pageshow',function(event, ui){
+                                screenToShow=  $( event.currentTarget).attr('id');
+                    		    screenToHide =  ui.prevPage.attr('id');
+	                            if (   screenToShow == 'SalesOrderGetListScreenDiv' ) {
+	                                setPageHeight( $.mobile.activePage );
+                         		    $('div[screen="SalesOrders"]#SalesOrderGetList').syListview( 'updateOnVisible', [screenToShow , "true"]);
+                                }else if ( screenToHide == 'SalesOrderGetListScreenDiv' ) {
+	                                $('div[screen="SalesOrders"]#SalesOrderGetList').syListview( 'updateOnVisible', [screenToHide  , "false"] );
+	                            }
+	                         }); 
+                          }                       
+                         UIUpdateHandlers.push( {screenName: 'SalesOrders',
+                                                widgetName: 'div.listview',
+                                                callback: function( data ) {
+                                                   $('div[screen="SalesOrders"]#SalesOrderGetList').syListview( 'updateUIFromWorkFlowMessage', [data] );
+       
+       return true;
+                                                      } }
+                            );
+                     
+                     
+                        function itemSelected( target ) {
+                            if (isBlackBerry()) {
+                                 navigateForward("Order_Details",  target.id );
+                                 return ;
+                            }  
+                             navigateForward("Order_Details",  target.id );                             
+                        }
+             </script>
+           </div>
+ 
+
+           <div class="customBottomOfFormStyle"   id="bottomOfSalesOrdersForm"></div>       
+        </form>
+       </div>
+     </div>  <!-- end of content -->
+    <div data-role="footer"  data-theme="a" style="display:none" class="ui-bar"></div>
+  
+    </div> <!-- end of screen SalesOrders -->
+     
+    <div data-role="page" data-theme='a' id="Order_StatusScreenDiv" sup_screen_title="Order Status" style="; background: #c0c0c0" sup_menuitems="Back,Back" sup_okaction="doCancelAction()">
+        
+      <div data-role="header"  data-theme="a" data-position="inline"> 
+       <a href="javascript:void(0)" data-icon="arrow-l" id="Order_StatusScreenDivCancel" name="Cancel" onclick="menuItemCallbackOrder_StatusCancel();"> Cancel</a>
+       <h1>Order Status</h1> 
+       <a href="javascript:void(0)" id="Order_StatusScreenDivBack" name="Back" onclick="menuItemCallbackOrder_StatusBack();"> Back</a>
+       
+     </div> 
+     <div data-role="content" class="wrapper" >	
+       <div data-role="scroller">
+
+        <form style="margin: 0px;" name="Order_StatusForm" id="Order_StatusForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="false">
+           
+          <div class="customTopOfFormStyle"  ><span id="Order_StatusForm_help" class="help"></span></div>
+          <div class="customTopOfFormStyle"   id="topOfOrder_StatusForm"></div> 
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_DOC_NUMBER_attribKey">DOC NUMBER:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_DOC_NUMBER_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_DOC_NUMBER_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_DOC_NUMBER_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_PURCH_NO_attribKey">PURCH NO:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_PURCH_NO_attribKey" sup_html_type="text"  sup_max_length="20" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_PURCH_NO_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_PURCH_NO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_PRC_STAT_H_attribKey">PRC STAT H:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_PRC_STAT_H_attribKey" sup_html_type="text"  sup_max_length="1" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_PRC_STAT_H_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_PRC_STAT_H_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_DLV_STAT_H_attribKey">DLV STAT H:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_DLV_STAT_H_attribKey" sup_html_type="text"  sup_max_length="1" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_DLV_STAT_H_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_DLV_STAT_H_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_DLV_BLOCK_attribKey">DLV BLOCK:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_DLV_BLOCK_attribKey" sup_html_type="text"  sup_max_length="2" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_DLV_BLOCK_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_DLV_BLOCK_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_ITM_NUMBER_attribKey">ITM NUMBER:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_ITM_NUMBER_attribKey" sup_html_type="text"  sup_max_length="6" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_ITM_NUMBER_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_ITM_NUMBER_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_MATERIAL_attribKey">MATERIAL:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_MATERIAL_attribKey" sup_html_type="text"  sup_max_length="18" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_MATERIAL_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_MATERIAL_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_SHORT_TEXT_attribKey">SHORT TEXT:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_SHORT_TEXT_attribKey" sup_html_type="text"  sup_max_length="40" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_SHORT_TEXT_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_SHORT_TEXT_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_REQ_QTY_attribKey">REQ QTY:</label>
+            <input class="right" type="number" id="SalesOrderGetStatus_REQ_QTY_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_REQ_QTY_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_REQ_QTY_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_CUM_CF_QTY_attribKey">CUM CF QTY:</label>
+            <input class="right" type="number" id="SalesOrderGetStatus_CUM_CF_QTY_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_CUM_CF_QTY_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_CUM_CF_QTY_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_SALES_UNIT_attribKey">SALES UNIT:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_SALES_UNIT_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_SALES_UNIT_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_SALES_UNIT_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_NET_VALUE_attribKey">NET VALUE:</label>
+            <input class="right" type="number" id="SalesOrderGetStatus_NET_VALUE_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_NET_VALUE_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_NET_VALUE_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_CURRENCY_attribKey">CURRENCY:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_CURRENCY_attribKey" sup_html_type="text"  sup_max_length="5" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_CURRENCY_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_CURRENCY_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_NET_PRICE_attribKey">NET PRICE:</label>
+            <input class="right" type="number" id="SalesOrderGetStatus_NET_PRICE_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_NET_PRICE_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_NET_PRICE_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_COND_P_UNT_attribKey">COND P UNT:</label>
+            <input class="right" type="number" id="SalesOrderGetStatus_COND_P_UNT_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_COND_P_UNT_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_COND_P_UNT_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_COND_UNIT_attribKey">COND UNIT:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_COND_UNIT_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_COND_UNIT_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_COND_UNIT_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_DLV_STAT_I_attribKey">DLV STAT I:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_DLV_STAT_I_attribKey" sup_html_type="text"  sup_max_length="1" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_DLV_STAT_I_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_DLV_STAT_I_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_DELIV_NUMB_attribKey">DELIV NUMB:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_DELIV_NUMB_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_DELIV_NUMB_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_DELIV_NUMB_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_DELIV_ITEM_attribKey">DELIV ITEM:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_DELIV_ITEM_attribKey" sup_html_type="text"  sup_max_length="6" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_DELIV_ITEM_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_DELIV_ITEM_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_DLV_QTY_attribKey">DLV QTY:</label>
+            <input class="right" type="number" id="SalesOrderGetStatus_DLV_QTY_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_DLV_QTY_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_DLV_QTY_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_REF_QTY_attribKey">REF QTY:</label>
+            <input class="right" type="number" id="SalesOrderGetStatus_REF_QTY_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_REF_QTY_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_REF_QTY_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_S_UNIT_ISO_attribKey">S UNIT ISO:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_S_UNIT_ISO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_S_UNIT_ISO_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_S_UNIT_ISO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_CD_UNT_ISO_attribKey">CD UNT ISO:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_CD_UNT_ISO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_CD_UNT_ISO_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_CD_UNT_ISO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_CURR_ISO_attribKey">CURR ISO:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_CURR_ISO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_CURR_ISO_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_CURR_ISO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_MATERIAL_EXTERNAL_attribKey">MATERIAL EXTERNAL:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_MATERIAL_EXTERNAL_attribKey" sup_html_type="text"  sup_max_length="40" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_MATERIAL_EXTERNAL_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_MATERIAL_EXTERNAL_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_MATERIAL_GUID_attribKey">MATERIAL GUID:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_MATERIAL_GUID_attribKey" sup_html_type="text"  sup_max_length="32" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_MATERIAL_GUID_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_MATERIAL_GUID_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_MATERIAL_VERSION_attribKey">MATERIAL VERSION:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_MATERIAL_VERSION_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_MATERIAL_VERSION_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_MATERIAL_VERSION_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_PO_ITM_NO_attribKey">PO ITM NO:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_PO_ITM_NO_attribKey" sup_html_type="text"  sup_max_length="6" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_PO_ITM_NO_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_PO_ITM_NO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_S_UNIT_DLV_attribKey">S UNIT DLV:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_S_UNIT_DLV_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_S_UNIT_DLV_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_S_UNIT_DLV_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_DLV_UNIT_ISO_attribKey">DLV UNIT ISO:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_DLV_UNIT_ISO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_DLV_UNIT_ISO_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_DLV_UNIT_ISO_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_REA_FOR_RE_attribKey">REA FOR RE:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_REA_FOR_RE_attribKey" sup_html_type="text"  sup_max_length="2" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_REA_FOR_RE_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_REA_FOR_RE_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="SalesOrderGetStatus_PURCH_NO_C_attribKey">PURCH NO C:</label>
+            <input class="right" type="text" id="SalesOrderGetStatus_PURCH_NO_C_attribKey" sup_html_type="text"  sup_max_length="35" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('Order_Status', 'SalesOrderGetStatus_PURCH_NO_C_attribKey', this)"/><span id="Order_Status_SalesOrderGetStatus_PURCH_NO_C_attribKey_help" class="help"></span>
+          </div>
+ 
+           <div class="customBottomOfFormStyle"   id="bottomOfOrder_StatusForm"></div>       
+        </form>
+       </div>
+     </div>  <!-- end of content -->
+    <div data-role="footer"  data-theme="a" style="display:none" class="ui-bar"></div>
+  
+    </div> <!-- end of screen Order Status -->
+     
+    <div data-role="page" data-theme='a' id="SalesOrderCreateScreenDiv" sup_screen_title="SalesOrderCreate" style="" sup_menuitems="Create,Create" sup_okaction="doCancelAction()">
+        
+      <div data-role="header"  data-theme="a" data-position="inline"> 
+       <a href="javascript:void(0)" data-icon="arrow-l" id="SalesOrderCreateScreenDivCancel" name="Cancel" onclick="menuItemCallbackSalesOrderCreateCancel();"> Cancel</a>
+       <h1>SalesOrderCreate</h1> 
+       <a href="javascript:void(0)" id="SalesOrderCreateScreenDivCreate" name="Create" onclick="menuItemCallbackSalesOrderCreateCreate();"> Create</a>
+       
+     </div> 
+     <div data-role="content" class="wrapper" >	
+       <div data-role="scroller">
+
+        <form style="margin: 0px;" name="SalesOrderCreateForm" id="SalesOrderCreateForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="false">
+           
+          <div class="customTopOfFormStyle"  ><span id="SalesOrderCreateForm_help" class="help"></span></div>
+          <div class="customTopOfFormStyle"   id="topOfSalesOrderCreateForm"></div>
+        <div id="HTML_Key" sup_html_type="htmlview">
+                <h2> Create a new Sales Order </h2>
+        </div> 
+          <div class="editbox">
+    
+          <label class="left" for="CustomerGetDetails_Custo_No_attribKey">Customer</label>
+            <input class="right" type="text" id="CustomerGetDetails_Custo_No_attribKey" sup_html_type="text"  sup_max_length="32767" sup_num_of_decimals="0" readonly="readonly" onblur="validateControl('SalesOrderCreate', 'CustomerGetDetails_Custo_No_attribKey', this)"/><span id="SalesOrderCreate_CustomerGetDetails_Custo_No_attribKey_help" class="help"></span>
+          </div>
+  
+          <div class="choice">
+    
+          <label class="left" for="Sales_Type">Sales Type</label>
+            <select class="right" id="Sales_Type" sup_num_of_decimals="0" sup_html_type="text"  sup_default_value="BV" sup_static_options="true" onblur="validateControl('SalesOrderCreate', 'Sales_Type', this)">            
+                        <option SELECTED value="BV">Cash Sales</option>
+                        <option value="SO">Standard Order</option>
+                    </select><span id="SalesOrderCreate_Sales_Type_help" class="help"></span>
+          </div>
+  
+          <div class="choice">
+    
+          <label class="left" for="Sales_Group">Sales Group</label>
+            <select class="right" id="Sales_Group" sup_num_of_decimals="0" sup_html_type="text"  sup_default_value="UW00" sup_static_options="true" onblur="validateControl('SalesOrderCreate', 'Sales_Group', this)">            
+                        <option value="US">United States</option>
+                        <option value="DE">Germany</option>
+                    </select><span id="SalesOrderCreate_Sales_Group_help" class="help"></span>
+          </div>
+  
+          <div class="choice">
+    
+          <label class="left" for="Sales_Office">Sales Office</label>
+            <select class="right" id="Sales_Office" sup_num_of_decimals="0" sup_html_type="text"  sup_static_options="true" onblur="validateControl('SalesOrderCreate', 'Sales_Office', this)">            
+                        <option value="SD00">SD00</option>
+                    </select><span id="SalesOrderCreate_Sales_Office_help" class="help"></span>
+          </div>
+  
+          <div class="choice">
+    
+          <label class="left" for="Sales_Division">Sales Division</label>
+            <select class="right" id="Sales_Division" sup_num_of_decimals="0" sup_html_type="text"  sup_static_options="true" onblur="validateControl('SalesOrderCreate', 'Sales_Division', this)">            
+                        <option value="AS">AS</option>
+                    </select><span id="SalesOrderCreate_Sales_Division_help" class="help"></span>
+          </div>
+  
+          <div class="choice">
+    
+          <label class="left" for="Sales_Organization">Sales Organization</label>
+            <select class="right" id="Sales_Organization" sup_num_of_decimals="0" sup_html_type="text"  sup_static_options="true" onblur="validateControl('SalesOrderCreate', 'Sales_Organization', this)">            
+                        <option value="UW00">US West</option>
+                        <option value="UE00">US East</option>
+                    </select><span id="SalesOrderCreate_Sales_Organization_help" class="help"></span>
+          </div>
+  
+          <div class="choice">
+    
+          <label class="left" for="Distribution_Channel">Distribution Channel</label>
+            <select class="right" id="Distribution_Channel" sup_num_of_decimals="0" sup_html_type="text"  sup_static_options="true" onblur="validateControl('SalesOrderCreate', 'Distribution_Channel', this)">            
+                        <option value="IN">Internet</option>
+                        <option value="WH">Wholesale</option>
+                    </select><span id="SalesOrderCreate_Distribution_Channel_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="Purchase_Date">Purchase Date</label>
+            <input class="right" type="text" id="Purchase_Date" sup_html_type="text"  sup_max_length="32767" sup_num_of_decimals="0" onblur="validateControl('SalesOrderCreate', 'Purchase_Date', this)"/><span id="SalesOrderCreate_Purchase_Date_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="Req_Date">Req Date</label>
+            <input class="right" type="text" id="Req_Date" sup_html_type="text"  sup_max_length="32767" sup_num_of_decimals="0" onblur="validateControl('SalesOrderCreate', 'Req_Date', this)"/><span id="SalesOrderCreate_Req_Date_help" class="help"></span>
+          </div>
+  
+          <div class="label">
+    
+            <p id="HTML_Key">Partner Channel</p>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="Partner_Role">Partner Role</label>
+            <input class="right" type="text" id="Partner_Role" sup_html_type="text"  value="AG" sup_default_value="AG" sup_max_length="32767" sup_num_of_decimals="0" onblur="validateControl('SalesOrderCreate', 'Partner_Role', this)"/><span id="SalesOrderCreate_Partner_Role_help" class="help"></span>
+          </div>
+  
+          <div class="label">
+    
+            <p id="HTML_Key">Item Config</p>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="Item_Number">Item Number</label>
+            <input class="right" type="text" id="Item_Number" sup_html_type="text"  sup_max_length="32767" sup_num_of_decimals="0" onblur="validateControl('SalesOrderCreate', 'Item_Number', this)"/><span id="SalesOrderCreate_Item_Number_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="Material_Number">Material Number</label>
+            <input class="right" type="text" id="Material_Number" sup_html_type="text"  sup_max_length="32767" sup_num_of_decimals="0" onblur="validateControl('SalesOrderCreate', 'Material_Number', this)"/><span id="SalesOrderCreate_Material_Number_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="Target_Quality">Target Quality</label>
+            <input class="right" type="text" id="Target_Quality" sup_html_type="text"  value="0" sup_default_value="0" sup_max_length="32767" sup_num_of_decimals="0" onblur="validateControl('SalesOrderCreate', 'Target_Quality', this)"/><span id="SalesOrderCreate_Target_Quality_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="Target_Quantity">Target Quantity</label>
+            <input class="right" type="text" id="Target_Quantity" sup_html_type="text"  value="0" sup_default_value="0" sup_max_length="32767" sup_num_of_decimals="0" onblur="validateControl('SalesOrderCreate', 'Target_Quantity', this)"/><span id="SalesOrderCreate_Target_Quantity_help" class="help"></span>
+          </div>
+  
+          <div class="editbox">
+    
+          <label class="left" for="Target_Unit">Target_Unit</label>
+            <input class="right" type="text" id="Target_Unit" sup_html_type="text"  value="EA" sup_default_value="EA" sup_max_length="32767" sup_num_of_decimals="0" onblur="validateControl('SalesOrderCreate', 'Target_Unit', this)"/><span id="SalesOrderCreate_Target_Unit_help" class="help"></span>
+          </div>
+ 
+           <div class="customBottomOfFormStyle"   id="bottomOfSalesOrderCreateForm"></div>       
+        </form>
+       </div>
+     </div>  <!-- end of content -->
+    <div data-role="footer"  data-theme="a" style="display:none" class="ui-bar"></div>
+  
+    </div> <!-- end of screen SalesOrderCreate -->
+    <div id="blankScreenDiv" style="display: none">
+    </div>
+
+   <script>
+   
+     iScroller = null;
+     
+     $(document).bind("mobileinit", function() {
+         $.mobile.ajaxFormsEnabled = false;
+         $.mobile.pushStateEnabled=false;
+     });
+
+     $(document).ready( function() 
+     {
+         if (isBlackBerry6NonTouchScreen()) {
+             var inputs = document.getElementsByTagName('input');
+             var i;
+             for ( i = 0; i <inputs.length; i++) {
+                 var type  =  inputs[i].getAttribute('type');
+                 if ( type === 'date' || type === 'time' || type === 'datetime-local') {
+                     inputs[i].setAttribute('type', 'text');
+                 }
+             }
+         }
+         else {
+             if (isBlackBerry7()) {
+                 var theme = $('div[data-role="page"]').first().attr('data-theme');
+                 $('input[type="date"]').attr('data-role', 'none');
+                 $('input[type="date"]').addClass("ui-body-" + theme + " ui-input-text ui-corner-all ui-shadow-inset ui-focus");
+                 $('input[type="time"]').attr('data-role', 'none');
+                 $('input[type="time"]').addClass("ui-body-" + theme + " ui-input-text ui-corner-all ui-shadow-inset ui-focus");
+                 $('input[type="datetime-local"]').attr('data-role', 'none');
+                 $('input[type="datetime-local"]').addClass("ui-body-" + theme + " ui-input-text ui-corner-all ui-shadow-inset ui-focus");       		        	
+             }
+             else {
+                 $('input[type="date"]:[readonly="readonly"]').attr('disabled','true');
+                 $('input[type="time"]:[readonly="readonly"]').attr('disabled','true');
+                 $('input[type="datetime-local"]:[readonly="readonly"]').attr('disabled','true');
+
+                 /* set date type to readonly on iphone, the virtual keyboard will not show up, only our datepicker */
+                 $('input[type="date"]').attr('readonly','readonly');
+                 $('input[type="time"]').attr('readonly','readonly')
+                 $('input[type="datetime-local"]').attr('readonly','readonly')
+
+                 $('input[type="date"]').datePicker();
+                 $('input[type="time"]').timePicker();
+                 $('input[type="datetime-local"]').dateTimePicker();
+                 }
+
+                 $('input[type="text"]:[readonly="readonly"]').attr('disabled','true');
+                 $('input[type="number"]:[readonly="readonly"]').attr('disabled','true');
+             }
+
+             $('div.signature input:hidden').signature();
+             $('button').customButton();
+
+             if (isBlackBerry() || isAndroid()) {
+                 /* we do not need header and footer for Blackberry */
+                 $('div[data-role="header"]').css('display', 'none');
+                 $('div[data-role="footer"]').css('display', 'none');
+
+                 UIScreenListeners.push( function(screenObj) {  
+                     if (screenObj.screenToShow &&  screenObj.screenToHide) {
+                         $.mobile.changePage( $( '#' +  screenObj.screenToShow +'ScreenDiv'),
+                         {  reverse:screenObj.isNavigateBack, changeHash: false });
+                     }
+                 });
+             } 
+             else {
+                 iScroller = new iScroll();
+
+                 // JQ only init pages when they are active on the first time,
+                 // so we have to create the widget only after the page was initialized.
+                 $('div[data-role="page"]' ).live( 'pagecreate',function(event) {
+                     $('div.[data-role="header"]', this ).menuHeaderBar();
+                     $('div.[data-role="footer"]', this ).menuFooterBar();
+                 });
+          
+                 UIScreenListeners.push( function(screenObj) {
+                     if (screenObj.screenToShow &&  screenObj.screenToHide ) {
+                         $.mobile.changePage( $( '#' +  screenObj.screenToShow +'ScreenDiv'), 
+                         {  reverse:screenObj.isNavigateBack, changeHash: false });
+                     }
+                 });
+
+                 UIFrameResizeHandlers.push( function( ) {
+                     $('div.[data-role="header"]',$.mobile.activePage[0] ).menuHeaderBar("positionButtons");
+                     $('div.[data-role="footer"]',$.mobile.activePage[0] ).menuFooterBar("positionButtons");
+                 });
+             }
+
+             // CR#698698-1
+             $.mobile.pageContainer.bind('pagechange',function( event, data ) {
+                 var hasListview =  $.mobile.activePage.find('div.listview').length> 0;
+                 if ( !data.options.reverse && hasListview && iScroller !== null ) {
+                     iScroller.setPosition(0,0,true);
+                 }
+             });
+
+             $('div').live('pageshow',function(event, ui) {
+
+             var pageId =  $( event.currentTarget).attr('id');
+             if (isBlackBerry() || isAndroid()) {
+                 var cssh = $.mobile.activePage.css("height");
+                 if (parseInt( cssh ) < screen.height) {
+                     setPageHeight( $.mobile.activePage );
+                 }
+             }
+             else { 
+                 // this is for iOS 
+                 showScroller(iScroller , false,ui.prevPage.attr('id') );
+                 if ($( event.currentTarget).attr('data-role')=='dialog') {
+                     showDialog(iScroller, $( event.currentTarget));
+                 }
+                 else {
+                     $('div.[data-role="header"]', this ).menuHeaderBar("positionButtons");
+                     $('div.[data-role="footer"]', this ).menuFooterBar("positionButtons");
+                     showScroller(iScroller ,true,pageId);
+                 }
+             }
+             // CR693207-1 - customAfterShowScreen was not being fired.
+             // CR 693214-1 prevent calling customAfterShowScreen with "dummy" as the screen to hide.
+             // CR 693214-2 prevent the call when opening the Choice control
+             if (pageId != undefined && ui.prevPage.attr('id') != undefined) {
+                 var screenToShow = pageId.replace("ScreenDiv","");
+                 var screenToHide = ui.prevPage.attr('id').replace("ScreenDiv","");
+                 setCurrentScreen( screenToShow );
+                 customAfterShowScreen( screenToShow,(screenToHide === "dummy")?"":screenToHide);
+             }
+             if (isAndroid()) {
+                 $.mobile.activePage.find('textarea[readonly="readonly"]').keyup();
+             }
+        });
+     });
+
+ </script>
+
+
+    </body>
+</html>

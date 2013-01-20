@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget>
+  <screens src="html/workflow_jQueryMobileLookAndFeel.html" default="Start">
+    <screen key="html/workflow_jQueryMobileLookAndFeel.html">
+    </screen>
+  </screens>
+  <scrolling>0</scrolling>
+  
+</widget>

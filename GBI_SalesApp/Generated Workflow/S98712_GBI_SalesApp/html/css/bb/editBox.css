@@ -1,0 +1,27 @@
+.editbox {
+   margin:0px 0px;
+} 
+
+div.editbox input{ 
+    background:black;
+    background-image: url(img/inputBackground.png);
+    background-repeat:repeat-x;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    height:40px;
+    border:none;
+}
+
+div.editbox textarea {
+    background:black;
+    background-image: url(img/inputBackground.png);
+    background-repeat:repeat;
+     margin: 0px 0px;
+     padding: 0px 0px;
+     border:none;
+}
+
+textarea.right {
+    position:relative;
+    overflow:hidden;
+}

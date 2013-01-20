@@ -1,0 +1,476 @@
+﻿<!doctype html>
+<!-- Warning, this file is overwritten with each run of the package generation wizard -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <meta name="HandheldFriendly" content="True" />
+        <meta http-equiv="PRAGMA" content="NO-CACHE" />
+        <meta name="viewport" content="minimum-scale=.25, initial-scale=1" />
+
+        <script src="js/API.js"></script>
+        <script src="js/Callbacks.js"></script>
+        <script src="js/Camera.js"></script>
+        <script src="js/Certificate.js"></script>
+        <script src="js/Custom.js"></script>
+        <script src="js/ExternalResource.js"></script>
+        <script src="js/json2.js"></script>
+        <script src="js/Resources.js"></script>
+        <script src="js/SUPStorage.js"></script>
+        <script src="js/Timezone.js"></script>
+        <script src="js/Utils.js"></script>
+        <script src="js/Workflow.js"></script>
+        <script src="js/WorkflowMessage.js"></script>
+        <link rel="stylesheet" href="css/Stylesheet.css" type="text/css" />      
+    </head>
+    <body onload="onWorkflowLoad();">
+    <div id="StartScreenDiv" sup_screen_title="Start" style="display: none; background: #ff8000" sup_menuitems="Customer Detail,CustGetDetail,Cancel,Cancel" sup_okaction="doCancelAction()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"StartScreenTitle\" class=\"screenTitle\">Start</h3>"); }</script>
+        <ul id="StartScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Customer Detail" id="StartCustGetDetail" onclick="menuItemCallbackStartCustGetDetail();">Customer Detail</a></li>
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="StartCancel" onclick="menuItemCallbackStartCancel();">Cancel</a></li>
+        </ul>
+        <form style="margin: 0px;" name="StartForm" id="StartForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+        <table class="screen">
+          <tr><td colspan="2"><span id="StartForm_help" class="help"></span></td></tr>
+          <tr><td colspan="2" id="topOfStartForm"></td></tr>
+        </table>
+        <div id="HTML_Key" sup_html_type="htmlview">
+                <h2>GBI_SalesApp</h2>
+        </div>
+        <table class="screen">
+            <tr>
+                <td class="left"><label for="Select_Customer">Select Customer</label></td>
+                <td class="right">
+                    <select class="right" id="Select_Customer" sup_num_of_decimals="0" sup_html_type="text"  sup_default_value="0000012000" sup_static_options="true">            
+                        <option value="0000025011">The Bike Zone</option>
+                        <option value="0000005000">Beantown Bikes</option>
+                        <option value="0000008000">Motown Bikes</option>
+                        <option SELECTED value="0000012000">Northwest Bikes</option>
+                        <option value="0000011000">DC Bikes</option>
+                    </select><span id="Start_Select_Customer_help" class="help"></span>
+                </td>
+            </tr>
+          <tr><td colspan="2" id="bottomOfStartForm"></td></tr></table>       
+        </form>  
+    </div> <!-- end of screen Start -->
+    <div id="Cust_DetailsScreenDiv" sup_screen_title="Cust Details" style="display: none; background: #ff8000" sup_menuitems="View Orders,GetOrderList,Back,Back" sup_okaction="doCancelAction()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"Cust_DetailsScreenTitle\" class=\"screenTitle\">Cust Details</h3>"); }</script>
+        <ul id="Cust_DetailsScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="View Orders" id="Cust_DetailsGetOrderList" onclick="menuItemCallbackCust_DetailsGetOrderList();">View Orders</a></li>
+            <li><a class="nav" href="javascript:void(0)" name="Back" id="Cust_DetailsBack" onclick="menuItemCallbackCust_DetailsBack();">Back</a></li>
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="Cust_DetailsCancel" onclick="menuItemCallbackCust_DetailsCancel()">Cancel</a></li>
+        </ul>
+        <form style="margin: 0px;" name="Cust_DetailsForm" id="Cust_DetailsForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+        <table class="screen">
+          <tr><td colspan="2"><span id="Cust_DetailsForm_help" class="help"></span></td></tr>
+          <tr><td colspan="2" id="topOfCust_DetailsForm"></td></tr>
+            <tr>
+                <td class="left"><label for="CustomerGetDetails_Custo_No_attribKey">Custo No:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="CustomerGetDetails_Custo_No_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly"/><span id="Cust_Details_CustomerGetDetails_Custo_No_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="CustomerGetDetails_FORM_OF_AD_attribKey">FORM OF AD:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="CustomerGetDetails_FORM_OF_AD_attribKey" sup_html_type="text"  sup_max_length="30" sup_num_of_decimals="0" readonly="readonly"/><span id="Cust_Details_CustomerGetDetails_FORM_OF_AD_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="CustomerGetDetails_FIRST_NAME_attribKey">FIRST NAME:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="CustomerGetDetails_FIRST_NAME_attribKey" sup_html_type="text"  sup_max_length="35" sup_num_of_decimals="0" readonly="readonly"/><span id="Cust_Details_CustomerGetDetails_FIRST_NAME_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="CustomerGetDetails_NAME_attribKey">NAME:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="CustomerGetDetails_NAME_attribKey" sup_html_type="text"  sup_max_length="35" sup_num_of_decimals="0" readonly="readonly"/><span id="Cust_Details_CustomerGetDetails_NAME_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="CustomerGetDetails_STREET_attribKey">STREET:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="CustomerGetDetails_STREET_attribKey" sup_html_type="text"  sup_max_length="35" sup_num_of_decimals="0" readonly="readonly"/><span id="Cust_Details_CustomerGetDetails_STREET_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="CustomerGetDetails_POSTL_CODE_attribKey">POSTL CODE:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="CustomerGetDetails_POSTL_CODE_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly"/><span id="Cust_Details_CustomerGetDetails_POSTL_CODE_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="CustomerGetDetails_CITY_attribKey">CITY:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="CustomerGetDetails_CITY_attribKey" sup_html_type="text"  sup_max_length="35" sup_num_of_decimals="0" readonly="readonly"/><span id="Cust_Details_CustomerGetDetails_CITY_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="CustomerGetDetails_REGION_attribKey">REGION:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="CustomerGetDetails_REGION_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="Cust_Details_CustomerGetDetails_REGION_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="CustomerGetDetails_COUNTRY_attribKey">COUNTRY:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="CustomerGetDetails_COUNTRY_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="Cust_Details_CustomerGetDetails_COUNTRY_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="CustomerGetDetails_FAX_NUMBER_attribKey">FAX NUMBER:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="CustomerGetDetails_FAX_NUMBER_attribKey" sup_html_type="text"  sup_max_length="31" sup_num_of_decimals="0" readonly="readonly"/><span id="Cust_Details_CustomerGetDetails_FAX_NUMBER_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="CustomerGetDetails_TELEPHONE_attribKey">TELEPHONE:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="CustomerGetDetails_TELEPHONE_attribKey" sup_html_type="text"  sup_max_length="16" sup_num_of_decimals="0" readonly="readonly"/><span id="Cust_Details_CustomerGetDetails_TELEPHONE_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="CustomerGetDetails_LANGU_attribKey">LANGU:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="CustomerGetDetails_LANGU_attribKey" sup_html_type="text"  sup_max_length="1" sup_num_of_decimals="0" readonly="readonly"/><span id="Cust_Details_CustomerGetDetails_LANGU_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="CustomerGetDetails_CURRENCY_attribKey">CURRENCY:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="CustomerGetDetails_CURRENCY_attribKey" sup_html_type="text"  sup_max_length="5" sup_num_of_decimals="0" readonly="readonly"/><span id="Cust_Details_CustomerGetDetails_CURRENCY_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="CustomerGetDetails_COUNTRYISO_attribKey">COUNTRYISO:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="CustomerGetDetails_COUNTRYISO_attribKey" sup_html_type="text"  sup_max_length="2" sup_num_of_decimals="0" readonly="readonly"/><span id="Cust_Details_CustomerGetDetails_COUNTRYISO_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="CustomerGetDetails_ONLY_CHANGE_COMADDRESS_attribKey">ONLY CHANGE COMADDRESS:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="CustomerGetDetails_ONLY_CHANGE_COMADDRESS_attribKey" sup_html_type="text"  sup_max_length="1" sup_num_of_decimals="0" readonly="readonly"/><span id="Cust_Details_CustomerGetDetails_ONLY_CHANGE_COMADDRESS_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+          <tr><td colspan="2" id="bottomOfCust_DetailsForm"></td></tr></table>       
+        </form>  
+    </div> <!-- end of screen Cust Details -->
+    <div id="Order_DetailsScreenDiv" sup_screen_title="Order Details" style="display: none; background: #ff8000" sup_menuitems="Back,Back" sup_okaction="doCancelAction()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"Order_DetailsScreenTitle\" class=\"screenTitle\">Order Details</h3>"); }</script>
+        <ul id="Order_DetailsScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Back" id="Order_DetailsBack" onclick="menuItemCallbackOrder_DetailsBack();">Back</a></li>
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="Order_DetailsCancel" onclick="menuItemCallbackOrder_DetailsCancel()">Cancel</a></li>
+        </ul>
+        <form style="margin: 0px;" name="Order_DetailsForm" id="Order_DetailsForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+        <table class="screen">
+          <tr><td colspan="2"><span id="Order_DetailsForm_help" class="help"></span></td></tr>
+          <tr><td colspan="2" id="topOfOrder_DetailsForm"></td></tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_CUST_NUM_attribKey">CUST NUM:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_CUST_NUM_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_CUST_NUM_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_SD_DOC_attribKey">SD DOC:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_SD_DOC_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_SD_DOC_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_ITM_NUMBER_attribKey">ITM NUMBER:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_ITM_NUMBER_attribKey" sup_html_type="text"  sup_max_length="6" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_ITM_NUMBER_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_MATERIAL_attribKey">MATERIAL:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_MATERIAL_attribKey" sup_html_type="text"  sup_max_length="18" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_MATERIAL_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_SHORT_TEXT_attribKey">SHORT TEXT:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_SHORT_TEXT_attribKey" sup_html_type="text"  sup_max_length="40" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_SHORT_TEXT_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_DOC_TYPE_attribKey">DOC TYPE:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_DOC_TYPE_attribKey" sup_html_type="text"  sup_max_length="4" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_DOC_TYPE_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_REQ_QTY_attribKey">REQ QTY:</label></td>
+                <td class="right">
+                    <input class="right" type="number" id="SalesOrderGetList_REQ_QTY_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_REQ_QTY_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_PURCH_NO_attribKey">PURCH NO:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_PURCH_NO_attribKey" sup_html_type="text"  sup_max_length="20" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_PURCH_NO_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_BATCH_attribKey">BATCH:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_BATCH_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_BATCH_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_BILL_BLOCK_attribKey">BILL BLOCK:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_BILL_BLOCK_attribKey" sup_html_type="text"  sup_max_length="2" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_BILL_BLOCK_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_DLV_BLOCK_attribKey">DLV BLOCK:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_DLV_BLOCK_attribKey" sup_html_type="text"  sup_max_length="2" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_DLV_BLOCK_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_SOLD_TO_attribKey">SOLD TO:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_SOLD_TO_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_SOLD_TO_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_NAME_attribKey">NAME:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_NAME_attribKey" sup_html_type="text"  sup_max_length="35" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_NAME_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_EXCHG_RATE_attribKey">EXCHG RATE:</label></td>
+                <td class="right">
+                    <input class="right" type="number" id="SalesOrderGetList_EXCHG_RATE_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_EXCHG_RATE_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_DLV_QTY_attribKey">DLV QTY:</label></td>
+                <td class="right">
+                    <input class="right" type="number" id="SalesOrderGetList_DLV_QTY_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_DLV_QTY_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_BASE_UOM_attribKey">BASE UOM:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_BASE_UOM_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_BASE_UOM_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_NET_PRICE_attribKey">NET PRICE:</label></td>
+                <td class="right">
+                    <input class="right" type="number" id="SalesOrderGetList_NET_PRICE_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_NET_PRICE_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_COND_P_UNT_attribKey">COND P UNT:</label></td>
+                <td class="right">
+                    <input class="right" type="number" id="SalesOrderGetList_COND_P_UNT_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_COND_P_UNT_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_COND_UNIT_attribKey">COND UNIT:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_COND_UNIT_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_COND_UNIT_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_NET_VAL_HD_attribKey">NET VAL HD:</label></td>
+                <td class="right">
+                    <input class="right" type="number" id="SalesOrderGetList_NET_VAL_HD_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_NET_VAL_HD_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_NET_VALUE_attribKey">NET VALUE:</label></td>
+                <td class="right">
+                    <input class="right" type="number" id="SalesOrderGetList_NET_VALUE_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_NET_VALUE_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_DIVISION_attribKey">DIVISION:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_DIVISION_attribKey" sup_html_type="text"  sup_max_length="2" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_DIVISION_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_DOC_STATUS_attribKey">DOC STATUS:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_DOC_STATUS_attribKey" sup_html_type="text"  sup_max_length="20" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_DOC_STATUS_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_SALES_GRP_attribKey">SALES GRP:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_SALES_GRP_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_SALES_GRP_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_SALES_OFF_attribKey">SALES OFF:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_SALES_OFF_attribKey" sup_html_type="text"  sup_max_length="4" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_SALES_OFF_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_SALES_ORG_attribKey">SALES ORG:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_SALES_ORG_attribKey" sup_html_type="text"  sup_max_length="4" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_SALES_ORG_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_SALES_UNIT_attribKey">SALES UNIT:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_SALES_UNIT_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_SALES_UNIT_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_SHIP_POINT_attribKey">SHIP POINT:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_SHIP_POINT_attribKey" sup_html_type="text"  sup_max_length="4" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_SHIP_POINT_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_DISTR_CHAN_attribKey">DISTR CHAN:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_DISTR_CHAN_attribKey" sup_html_type="text"  sup_max_length="2" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_DISTR_CHAN_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_CURRENCY_attribKey">CURRENCY:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_CURRENCY_attribKey" sup_html_type="text"  sup_max_length="5" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_CURRENCY_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_PLANT_attribKey">PLANT:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_PLANT_attribKey" sup_html_type="text"  sup_max_length="4" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_PLANT_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_STORE_LOC_attribKey">STORE LOC:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_STORE_LOC_attribKey" sup_html_type="text"  sup_max_length="4" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_STORE_LOC_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_ORD_REASON_attribKey">ORD REASON:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_ORD_REASON_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_ORD_REASON_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_REASON_REJ_attribKey">REASON REJ:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_REASON_REJ_attribKey" sup_html_type="text"  sup_max_length="2" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_REASON_REJ_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_B_UOM_ISO_attribKey">B UOM ISO:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_B_UOM_ISO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_B_UOM_ISO_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_CD_UNT_ISO_attribKey">CD UNT ISO:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_CD_UNT_ISO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_CD_UNT_ISO_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_S_UNIT_ISO_attribKey">S UNIT ISO:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_S_UNIT_ISO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_S_UNIT_ISO_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_CURR_ISO_attribKey">CURR ISO:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_CURR_ISO_attribKey" sup_html_type="text"  sup_max_length="3" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_CURR_ISO_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_PURCH_NO_C_attribKey">PURCH NO C:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_PURCH_NO_C_attribKey" sup_html_type="text"  sup_max_length="35" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_PURCH_NO_C_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_EXCHG_RATE_V_attribKey">EXCHG RATE V:</label></td>
+                <td class="right">
+                    <input class="right" type="number" id="SalesOrderGetList_EXCHG_RATE_V_attribKey" sup_html_type="number"  sup_max_length="32767" sup_num_of_decimals="10" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_EXCHG_RATE_V_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_MAT_EXT_attribKey">MAT EXT:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_MAT_EXT_attribKey" sup_html_type="text"  sup_max_length="40" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_MAT_EXT_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_MAT_GUID_attribKey">MAT GUID:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_MAT_GUID_attribKey" sup_html_type="text"  sup_max_length="32" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_MAT_GUID_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_MAT_VERS_attribKey">MAT VERS:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_MAT_VERS_attribKey" sup_html_type="text"  sup_max_length="10" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_MAT_VERS_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left"><label for="SalesOrderGetList_STATUS_DOC_attribKey">STATUS DOC:</label></td>
+                <td class="right">
+                    <input class="right" type="text" id="SalesOrderGetList_STATUS_DOC_attribKey" sup_html_type="text"  sup_max_length="1" sup_num_of_decimals="0" readonly="readonly"/><span id="Order_Details_SalesOrderGetList_STATUS_DOC_attribKey_help" class="help"></span>
+                </td>
+            </tr>
+          <tr><td colspan="2" id="bottomOfOrder_DetailsForm"></td></tr></table>       
+        </form>  
+    </div> <!-- end of screen Order Details -->
+    <div id="OrdersScreenDiv" sup_screen_title="Orders" style="display: none; background: #ff8000" sup_menuitems="Cancel,Cancel" sup_okaction="doSaveActionWithoutReturn()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"OrdersScreenTitle\" class=\"screenTitle\">Orders</h3>"); }</script>
+        <ul id="OrdersScreenDivMenu" class="menu">
+            <li><a class="nav" href="javascript:void(0)" name="Cancel" id="OrdersCancel" onclick="menuItemCallbackOrdersCancel();">Cancel</a></li>
+        </ul>
+        <form style="margin: 0px;" name="OrdersForm" id="OrdersForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+        <table class="screen">
+          <tr><td colspan="2"><span id="OrdersForm_help" class="help"></span></td></tr>
+          <tr><td colspan="2" id="topOfOrdersForm"></td></tr>
+            <tr><td colspan="2"><ul class="listview" id="SalesOrderGetList" wrap_data="false" cells="Order_Details&?null&?&?false&?SalesOrderGetList_SD_DOC_attribKey&,30&,SD Doc&,normal&,TEXT&, &, &,SalesOrderGetList_ITM_NUMBER_attribKey&,30&,Itm Num&,normal&,TEXT&, &, &,SalesOrderGetList_MATERIAL_attribKey&,40&,Material&,normal&,TEXT&, &, "></ul></td></tr>
+          <tr><td colspan="2" id="bottomOfOrdersForm"></td></tr></table>       
+        </form>  
+    </div> <!-- end of screen Orders -->
+    <div id="CustomerOnMapScreenDiv" sup_screen_title="CustomerOnMap" style="display: none; background: #ff8000" sup_menuitems="Cancel,Cancel" sup_okaction="doSaveActionWithoutReturn()">
+        <script>if (isIOS()) { document.writeln("<h3 id=\"CustomerOnMapScreenTitle\" class=\"screenTitle\">CustomerOnMap</h3>"); }</script>
+        <ul id="CustomerOnMapScreenDivMenu" class="menu">
+        </ul>
+        <form style="margin: 0px;" name="CustomerOnMapForm" id="CustomerOnMapForm" onSubmit="return false;" autocomplete="on" sup_show_alert_on_validation_error="true">
+        <table class="screen">
+          <tr><td colspan="2"><span id="CustomerOnMapForm_help" class="help"></span></td></tr>
+          <tr><td colspan="2" id="topOfCustomerOnMapForm"></td></tr>
+            <tr>
+                <td colspan="2">
+                   <img src="https://maps.googleapis.com/maps/api/staticmap?center=Munich" width="288" height="450" id="Map_Key"  sup_static_options="false" name="CustomerOnMap"  alt="CustomerOnMap"/>
+        
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">                   
+                    <!--  Note: using button tag seems doesn't work for iOS when we have both text and image , worked fine with BB6,android and WM 7  -->
+            <button  type="button" data-role="none" ignored="true" onclick="menuItemCallbackCustomerOnMapBack_Key();"  id="Back_Key" value="Back" label-position="left" >Back</button>
+                </td>
+            </tr>
+          <tr><td colspan="2" id="bottomOfCustomerOnMapForm"></td></tr></table>       
+        </form>  
+    </div> <!-- end of screen CustomerOnMap -->
+    <div id="blankScreenDiv" style="display: none">
+    </div>
+    </body>
+</html>

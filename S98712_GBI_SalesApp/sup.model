@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uepmodels:EMODiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uepmodels="platform:/resource/com.sybase.uep.tooling.models/model/uepModels.ecore" modelVersion="2.1.3">
+  <rootPackage name="/"/>
+  <personalizationKeys nullable="false" name="username" type="STRING">
+    <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+  </personalizationKeys>
+  <personalizationKeys nullable="false" name="password" type="STRING">
+    <dataType xsi:type="uepmodels:EPrimitiveType" name="STRING" sqlType="12" javaType="java.lang.String"/>
+  </personalizationKeys>
+  <publications name="Default" checkInterval="600" default="true"/>
+  <caches name="Default" default="true">
+    <policy xsi:type="uepmodels:EOnDemandPolicy">
+      <coherenceWindow/>
+    </policy>
+  </caches>
+</uepmodels:EMODiagram>

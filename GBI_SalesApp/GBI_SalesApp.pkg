@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uepPkgdef:Definition xmlns:uepPkgdef="http://www.sybase.com/uep/tooling/deploy/ueppkgdef" name="GBI_SalesApp" description="">
+  <contents mbos="platform:/resource/GBI_SalesApp/sup.model#_WLJYwCnsEeKwN6Xm5K2H_g platform:/resource/GBI_SalesApp/sup.model#_LDE8YCHOEeKqcsVTEceIFA platform:/resource/GBI_SalesApp/sup.model#_0vjqUCD5EeKOBq_U0XxLpA platform:/resource/GBI_SalesApp/sup.model#_9FOksCENEeKOBq_U0XxLpA"/>
+  <applications>ACED0005757200135B4C6A6176612E6C616E672E537472696E673BADD256E7E91D7B4702000078700000000374000C4742495F53616C657341707074000C4742495F53616C657341707074001644656661756C74206170706C69636174696F6E204944</applications>
+</uepPkgdef:Definition>

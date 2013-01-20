@@ -1,0 +1,26 @@
+.customTopOfFormStyle{
+
+}
+
+.customBottomOfFormStyle{
+
+}
+
+/*-------Async Wait Dialog-----------------------------------------------------*/
+.wait_background {
+	background-color: black;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	opacity: 0.6;
+	filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=60)";
+	z-index: 2;
+}
+
+.wait_dialog {
+	background-color: white;
+	border: 2px solid silver;
+	padding: 20px;
+	position: absolute;
+	z-index: 3;
+}

@@ -1,0 +1,5 @@
+.ui-custom-button input { position: absolute; left: -9999px; top: -9999px; }
+.label-left { text-align: left;}
+.ui-custom-button .label-left { float:left}
+.ui-custom-button .label-right { float:right}
+.ui-custom-button .label-center { display:block }

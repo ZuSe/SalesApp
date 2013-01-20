@@ -1,0 +1,43 @@
+ .listview_header {
+    background: rgb(132,130,132);
+    position:fixed;
+    top:0px;
+    overflow:auto;
+ }
+ .listview_header, .listview, .listview_item , .lv_lines .lv_line {
+    margin:0px 0px;
+    display:block;
+ }
+ .lv_lines {
+    border-bottom: 1px solid rgb(234,234,234);
+    background:black;
+    color:white;
+ 
+ }
+ .lv_lines.lastItem {
+    margin-bottom:10px;
+ }
+  .listview_item {
+    height:auto;
+    font-size:1.0em;
+    padding:3px 0px;
+ }
+ .lv_line, .lv_line_field {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border:none
+ }
+ .lv_line_field   {
+    display:inline;
+ }
+ .listview_header  .lv_line_field {
+    color:black;
+ }
+ 
+ .lv_lines.hover  { 
+   background:white;
+   color:black;
+ }
+ 
+

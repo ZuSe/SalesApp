@@ -1,0 +1,28 @@
+ .listview_header {
+    padding:5px 28px;
+ }
+ .listview,  .lv_lines , .lv_line {
+    display:block;
+    margin:0px 0px;
+    padding:0px 0px;
+ }
+ .lv_lines{
+    padding: 0px 0px;   
+ }
+ .lv_line ,.lv_line_field{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-decoration: none;
+    /* text-shadow: 0 1px 1px #fff; CR 694275, the text-shadow makes text a little blurry */    
+ }
+ .lv_line_field {
+    display:inline; 
+ }
+ .listview .ui-li-static, .listview  .ui-btn-inner {
+    padding:  0px 0px;
+ }
+ .listview_header .lv_line_field{
+   font-weight: bold; 
+ }
+

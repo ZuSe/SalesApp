@@ -1,0 +1,39 @@
+.as-wrapper {
+    position:absolute; z-index:1000;
+    left:0;
+    font-family:helvetica, sans-serif;
+    background:rgba(0,0,0,0.7);
+    text-align:left;
+}
+.sa-header {
+    position:relative;
+    height:15px;
+    border-top:1px solid #000; border-bottom:1px solid #000;
+    background:rgb(144,151,163);
+    opacity: 0.9;
+}
+.as-button-wrapper {
+    background:rgb(53,57,65);
+    position:relative; z-index:999;
+    display:block;
+    padding:0 15px;
+    opacity: 0.9;
+}
+.as-button { 
+    background:-webkit-gradient(linear, 0% 50%, 0% 53%, from(#D4D6D7), to(#BBBDC0)); 
+    border-bottom-color:rgb(47,53,60);
+    border-top-color:rgb(47,53,60);
+    border-left-color:rgb(53,57,65);
+    border-right-color:rgb(53,57,65);
+    border-width:2px;
+}
+
+ .close-button { 
+   background:-webkit-gradient(linear, 0% 46%, 0% 50%, from(#42444C), to(#212833), color-stop(.6,#212833));
+   color:white;
+  }
+
+  .invisible_button {
+   position: absolute; left: -9999px;  width: 0px;  height:0px;
+    /* set the height to 0px since without the setting, the height of the footer would be double when you have a lot of invisble menus buttons on the page */
+    }

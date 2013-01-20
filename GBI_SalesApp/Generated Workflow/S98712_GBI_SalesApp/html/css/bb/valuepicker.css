@@ -1,0 +1,56 @@
+div.input {
+	float: left;
+	clear: right;
+    background-image: url(img/select_dropdown.png);
+    background-repeat: no-repeat;
+    background-position:right;
+    border:none;
+    color:black;
+    margin: 0px 0px;
+    padding:0px 0px;
+    height:42px;
+    width:227px;
+}
+ 
+div.valuepicker {
+	clear: both;
+	float: left;
+    border:2px solid white;
+    margin-left:15px;
+    padding:0px 0px;
+    z-index: 1000;
+    position:absolute;
+}
+  
+div.valuePickerTile {
+    background:rgb(66,69,66);
+}
+ 
+div.valuePickerTile .titleIcon {
+     background:rgb(66,69,66);
+     background-image: url(img/ic_dialog_menu_generic.png) ;
+     background-repeat: no-repeat;
+     background-position:right;
+     width: 38px;
+     height:38px;
+     border: none;
+     margin:0px 0px;
+}
+
+div.valuePickerTile .title {
+     font-size: 1.2em;
+     text-shadow: rgb(71,69,71) 0px 0px 2px;
+     color:white;
+     margin-left: 10px;
+}
+
+label.title {
+     font-size: 1.2em;
+     color:white;
+     margin-left:45px;
+}
+ 
+div.valuepicker div.mainSection {
+    magin:0px 0px;
+    padding:0px 0px;
+}
