@@ -95,6 +95,10 @@
         <element href="sup.model#//@mObjects.0/@attributes.22"/>
         <layoutConstraint xsi:type="notation:Location"/>
       </children>
+      <children type="2001">
+        <element href="sup.model#//@mObjects.0/@attributes.23"/>
+        <layoutConstraint xsi:type="notation:Location"/>
+      </children>
       <styles xsi:type="notation:DrawerStyle"/>
       <styles xsi:type="notation:SortingStyle"/>
       <styles xsi:type="notation:FilteringStyle"/>
@@ -290,6 +294,34 @@
         <element href="sup.model#//@mObjects.1/@attributes.43"/>
         <layoutConstraint xsi:type="notation:Location"/>
       </children>
+      <children type="2001">
+        <element href="sup.model#//@mObjects.1/@attributes.44"/>
+        <layoutConstraint xsi:type="notation:Location"/>
+      </children>
+      <children type="2001">
+        <element href="sup.model#//@mObjects.1/@attributes.45"/>
+        <layoutConstraint xsi:type="notation:Location"/>
+      </children>
+      <children type="2001">
+        <element href="sup.model#//@mObjects.1/@attributes.46"/>
+        <layoutConstraint xsi:type="notation:Location"/>
+      </children>
+      <children type="2001">
+        <element href="sup.model#//@mObjects.1/@attributes.47"/>
+        <layoutConstraint xsi:type="notation:Location"/>
+      </children>
+      <children type="2001">
+        <element href="sup.model#//@mObjects.1/@attributes.48"/>
+        <layoutConstraint xsi:type="notation:Location"/>
+      </children>
+      <children type="2001">
+        <element href="sup.model#//@mObjects.1/@attributes.49"/>
+        <layoutConstraint xsi:type="notation:Location"/>
+      </children>
+      <children type="2001">
+        <element href="sup.model#//@mObjects.1/@attributes.50"/>
+        <layoutConstraint xsi:type="notation:Location"/>
+      </children>
       <styles xsi:type="notation:DrawerStyle"/>
       <styles xsi:type="notation:SortingStyle"/>
       <styles xsi:type="notation:FilteringStyle"/>
@@ -435,6 +467,30 @@
       </children>
       <children type="2001">
         <element href="sup.model#//@mObjects.2/@attributes.31"/>
+        <layoutConstraint xsi:type="notation:Location"/>
+      </children>
+      <children type="2001">
+        <element href="sup.model#//@mObjects.2/@attributes.32"/>
+        <layoutConstraint xsi:type="notation:Location"/>
+      </children>
+      <children type="2001">
+        <element href="sup.model#//@mObjects.2/@attributes.33"/>
+        <layoutConstraint xsi:type="notation:Location"/>
+      </children>
+      <children type="2001">
+        <element href="sup.model#//@mObjects.2/@attributes.34"/>
+        <layoutConstraint xsi:type="notation:Location"/>
+      </children>
+      <children type="2001">
+        <element href="sup.model#//@mObjects.2/@attributes.35"/>
+        <layoutConstraint xsi:type="notation:Location"/>
+      </children>
+      <children type="2001">
+        <element href="sup.model#//@mObjects.2/@attributes.36"/>
+        <layoutConstraint xsi:type="notation:Location"/>
+      </children>
+      <children type="2001">
+        <element href="sup.model#//@mObjects.2/@attributes.37"/>
         <layoutConstraint xsi:type="notation:Location"/>
       </children>
       <styles xsi:type="notation:DrawerStyle"/>
